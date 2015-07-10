@@ -1,0 +1,18 @@
+﻿#Strings to localize addons.mozilla.org page of Stationery extension for Your language.
+#Leave English or empty if You do not care.
+
+
+#Name
+Stationery
+
+#Summary
+Dodatek, ki je podoben predlogam programa Outlook Express. Vam omogoča uporabo datotek HTML kot predlogo za pošto. Dovoljuje tudi predloge po meri v odgovorih in posredovanih sporočilih!
+
+#Description
+Preprosto uporabite spustni meni gumbov Sestavi, Odgovori in Posreduj, in izberite "Druga predloga ...".
+
+Kot predloge lahko uporabite datoteke predlog iz programa MS Outlook Express. Ali pa lahko eno napišete.
+
+Privzeto nazadnje uporabljena predloga postane privzeta. Vključuje idejo: nazadnje uporabljena predloga je verjetno najljubša. Vse predloge so razvrščene, z nazadnje uporabljeno postavljeno na vrh.
+
+Toda privzeto obnašanje lahko spremenite: Preprosto pojdite na Orodja / Možnosti Stationery, Možnosti zavihkov, in odznačite nastavitev "Samodejno upravljaj s predlogami". Os zdaj naprej Stationery ne be več posodabljal seznama predlog, tako da bo privzeta predloga ostala privzeta, dokler je ročno ne spremenite v možnostih Stationery.

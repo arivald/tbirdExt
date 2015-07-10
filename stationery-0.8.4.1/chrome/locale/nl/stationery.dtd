@@ -1,0 +1,15 @@
+<!ENTITY stationery.Composer.Tab.Edit "Bewerken">
+<!ENTITY stationery.Composer.Tab.Source "Bron (HTML)">
+<!ENTITY stationery.Composer.findCmd.label "Vind...">
+<!ENTITY stationery.Composer.findCmd.accesskey "V">
+<!ENTITY stationery.Options "Stationery opties">
+<!ENTITY stationery.OptionsAKey "S">
+<!ENTITY stationery.Options.tabOptions "Opties">
+<!ENTITY stationery.Options.tabOptions.Gui.label1 "In Thunderbird hoofdvenster koppelen aan:">
+<!ENTITY stationery.Options.tabOptions.Gui.label2 "In &apos;Toon bericht&apos; venster koppelen aan:">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarWriteCheckBox "Werkbalk &apos;Opstellen&apos; knop">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyCheckBox "Werkbalk &apos;Beantwoorden&apos; knop">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyAllCheckBox "Werkbalk &apos;Allen beantwoorden&apos; knop">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarForwardCheckBox "Werkbalk &apos;Doorsturen&apos; knop">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderReplyCheckBox "Header &apos;Antwoord&apos; knoppen">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderForwardCheckBox "Header &apos;Forward&apos; button">

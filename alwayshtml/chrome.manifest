@@ -1,0 +1,2 @@
+content alwayshtml chrome/content/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://alwayshtml/content/composer.xul

@@ -1,0 +1,2 @@
+﻿        <em:name>Stationery - Papeterie</em:name>
+        <em:description>Rozszerzenie umożliwia korzystanie z papeterii w poczcie.</em:description>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="alwayshtml-composer-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="text/javascript"><![CDATA[
+function DetermineConvertibility() { if (gMsgCompose.composeHTML) return nsIMsgCompConvertible.No; return nsIMsgCompConvertible.Plain; }
+]]>
+</script></overlay>

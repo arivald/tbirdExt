@@ -1,0 +1,28 @@
+<!ENTITY stationery.Composer.Tab.Edit "Redigera">
+<!ENTITY stationery.Composer.Tab.Source "Källkod (HTML)">
+<!ENTITY stationery.Composer.findCmd.label "Sök...">
+<!ENTITY stationery.Composer.findCmd.accesskey "ö">
+<!ENTITY stationery.Options "Inställningar för Stationery">
+<!ENTITY stationery.OptionsAKey "I">
+<!ENTITY stationery.Options.tabOptions "Inställningar">
+<!ENTITY stationery.Options.tabOptions.Gui.label1 "I Thunderbirds huvudfönster, bifoga till:">
+<!ENTITY stationery.Options.tabOptions.Gui.label2 "I meddelandefönstret, bifoga till:">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarWriteCheckBox "Verktygsfältsknappen &quot;Skriv&quot;">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyCheckBox "Verktygsfältsknappen &quot;Svara&quot;">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyAllCheckBox "Verktygsfältsknappen &quot;Svara alla&quot;">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarForwardCheckBox "Verktygsfältsknappen &quot;Vidarebefordra&quot;">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderReplyCheckBox "Meddelandehuvudets &quot;Svara&quot;-knappar">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderForwardCheckBox "Meddelandehuvudets &quot;Vidarebefordra&quot;-knapp">
+<!ENTITY stationery.Options.tabOptions.Gui.OptionsWindowCheckBox "Infoga menyobjektet &quot;Inställningar för Stationery&quot; i Verktyg-menyn">
+<!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryCheckBox "Infoga menyobjektet &quot;Byt mall...&quot; i Skriv-fönstrets snabbmeny">
+<!ENTITY stationery.Options.tabOptions.Apply.label1 "Tillämpa mall på:">
+<!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Nytt meddelande">
+<!ENTITY stationery.Options.tabOptions.Apply.MailtoCheckBox "Meddelande via &quot;mailto:&quot;-länk">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderCheckBox "Svar till avsändaren">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyAllCheckBox "Svar till avsändaren &amp; alla mottagare">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardAttCheckBox "Vidarebefordran som bilaga">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardInlCheckBox "Vidarebefordran som infogat">
+<!ENTITY stationery.Options.tabOptions.Apply.NewsCheckBox "Diskussionsgruppsmeddelande">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyGroupCheckBox "Svar till diskussionsgrupp">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderGroupCheckBox "Svar till diskussionsgrupp, avsändare &amp; grupp">
+<!ENTITY stationery.Options.tabSourceEditor "Redigerare">

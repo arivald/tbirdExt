@@ -1,0 +1,202 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style>
+
+BODY { font-family: "trebuchet ms, ms sans serif, arial"; font-size: 10pt; color: black; font-weight: bolder;}
+a:link {  color: maroon;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight: bolder;}
+a:visited {  color: maroon;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight: bolder; }
+a:active {  color: maroon;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight; bolder;  }
+a:hover {color: red; text-decoration: underline}
+
+
+</style>
+<bgsound
+src="file:///c:\program%20files\common%20files\microsoft%20shared\stationery\allusions-gulls-flying.mid"
+loop="-1" volume="-211">
+<title>CloudEight Stationery, Allusions Collection, &quot;Gulls Flying&quot; (Photograph
+courtesy of Theresa Elvin)</title>
+</head>
+
+<body background="allusions-gulls-flying.jpg" bgcolor="#C5E9FA"
+style="margin-left: 37; margin-right: 12; margin-top: 15; margin-bottom: 4">
+
+<p><!--webbot bot="HTMLMarkup" startspan
+alt="[&lt;b&gt;This is the OE4/OE5 Scroll Script&lt;/b&gt;]" -->
+<table id="imageholder" cellspacing="0" style="LEFT: -1px; POSITION: absolute; TOP: -1px; Z-INDEX: -2;"><tr><td id="cell"></td></tr></table>
+<SCRIPT language=VBScript>
+<!--
+option explicit
+dim direction, scrollType, sizew, sizeh, nail, source, tall, wide, version, tile
+dim max, axis, placement, reset, temp, temp2, MoveItY, MoveItX, numfond, id 
+
+rem *************** STUFF YOU CAN CHANGE *******************
+
+direction="up"     ' change the direction of the scroll here: "up" or "left" or "down" or "right"
+scrollType="full"    ' change the type of scroll here: "full" to scroll the entire background (tiles your image), "border" to just scroll a margin
+sizew=800     ' **** IMPORTANT **** enter the width of the scrolling image here 
+sizeh=592     ' **** IMPORTANT **** enter the height of the scrolling image here
+source=document.body.background    ' tell the script which image to scroll
+
+rem ********************************************************
+
+nail=0
+tall=((screen.height\sizeh)+1)*3
+wide=(screen.width\sizew)+1
+version=mid(navigator.appVersion,23,1)
+direction= Lcase(direction)
+scrollType=Lcase(scrollType)
+
+sub setUp()
+    if scrollType="full" then
+        tile=wide
+    else
+        tile=1
+    end if
+
+    if direction="up" then
+        max=tall
+        axis=sizeh
+        placement=1
+        reset=1
+    elseif direction="left" then
+        max=wide
+        axis=sizew
+        placement=1
+        reset=1
+    elseif direction="down" then
+        max=tall
+        axis=0
+        placement=-sizeh
+        reset=-sizeh
+    elseif direction="right" then
+        max=wide
+        axis=0
+        placement=-sizew
+        reset=-sizew
+    end if
+
+    if version="4" and source=document.body.background then
+        MoveItY=0
+        MoveItX=0
+        if direction="down" then
+            MoveItY=-(sizeh*15)
+        elseif direction="right" then
+            MoveItX=-(sizew*15)
+        end if
+        numfond=document.body.sourceIndex
+        scroll4
+    else
+        for temp=0 to max
+            if direction="up" or direction="down" then
+                for temp2=1 to tile
+                    cell.insertAdjacentHTML "beforeEnd", "<img id=pics src=" & source & ">"
+                next
+                cell.insertAdjacentHTML "beforeEnd", "<br>"
+            elseif direction="left" or direction="right" then
+                for temp2=1 to tile
+                    cell.insertAdjacentHTML "beforeEnd", "<img id=pics src=" & source & ">"
+                next
+                if scrollType="full" then
+                    cell.insertAdjacentHTML "beforeEnd", "<br>"
+                end if
+            end if
+        next 
+    end if
+
+    if source=document.body.background and version <> "4" then
+        document.body.background=" "
+    end if
+end sub
+
+sub scroll4()
+    if nail=1 then
+        exit sub
+    end if
+    if direction="up" then
+        MoveItY=MoveItY-1
+        MoveItX=MoveItX+0
+    elseif direction="left" then
+        MoveItY=MoveItY+0
+        MoveItX=MoveItX-1
+    elseif direction="down" then
+        MoveItY=MoveItY+1
+        MoveItX=MoveItX+0
+    elseif direction="right" then
+        MoveItY=MoveItY+0
+        MoveItX=MoveItX+1
+    end if
+    Document.all(numfond).style.BackgroundPosition= MoveItX & " " & MoveItY
+    id=SetTimeOut("scroll4", 100,"VBScript")
+end sub
+
+sub scroll() 
+    if nail=1 then
+        exit sub
+    end if
+    if placement < axis then 
+        setTimeout "move", 1 
+    else 
+        placement=reset
+        setTimeout "move", 1 
+    end if 
+end sub 
+
+sub move()
+    if direction="up" then
+        imageholder.style.top=-placement 
+    elseif direction="left" then
+        imageholder.style.left=-placement
+    elseif direction="down" then
+        imageholder.style.top=placement
+    elseif direction="right" then
+        imageholder.style.left=placement
+    end if
+    placement=placement+1
+    setTimeout "scroll", 1 
+end sub 
+
+sub hotspot_OnMouseover()
+    stopIt.style.width=40
+    stopIt.style.height=40
+    hotspot.style.width=0
+    hotspot.style.height=0
+    if nail=1 then
+        stopIt.value="Start"
+    else
+        stopIt.value="Stop"
+    end if
+end sub
+
+sub stopIt_OnMouseout()
+    stopIt.style.width=0
+    stopIt.style.height=0
+    hotspot.style.width=40
+    hotspot.style.height=40
+end sub
+
+sub stopIt_OnClick()
+    if nail=0 then
+        nail=1
+    else
+        nail=0
+    end if
+    if version="4" and source=document.body.background then
+        scroll4()
+    else
+        scroll()
+    end if
+end sub
+
+sub window_OnLoad() 
+    setUp
+end sub
+
+setTimeout "scroll", 5000
+-->
+</SCRIPT> 
+<!--webbot
+bot="HTMLMarkup" endspan --></p>
+</body>
+</html>

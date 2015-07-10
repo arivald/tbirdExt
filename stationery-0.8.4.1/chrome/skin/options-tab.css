@@ -1,0 +1,331 @@
+/******************************************************************************
+project: "Stationery" extension for Thunderbird
+filename: options-tab.css
+author: £ukasz 'Arivald' P³omiñski <arivald@interia.pl>
+description:  CSS for options tab, all platforms 
+******************************************************************************/
+
+ /* .stationery-template-item * { outline: 1px dotted red; } */
+
+/* Elements in unselected richlistitems cannot be focused */
+richlistitem:not([selected]) * {
+  -moz-user-focus: ignore;
+}
+
+/* category selector */
+#categories { -moz-binding: url("chrome://stationery/content/bindings/options-tab.xml#categories-list"); }
+
+#categories {
+  -moz-appearance: none;
+  border: none;
+  -moz-margin-end: -1px;
+  background-color: transparent;
+  position: relative;
+  margin-top: 31px;
+}
+
+.category {
+  -moz-binding: url("chrome://stationery/content/bindings/options-tab.xml#category");
+  overflow: hidden;
+}
+
+.category:-moz-locale-dir(ltr) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.category:-moz-locale-dir(rtl) {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.category:not([disabled]) {
+  height: 52px;
+  transition-property: height, opacity;
+  transition-duration: 1s, 0.8s;
+}
+
+.category[selected] {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: ButtonText;
+  border-color: #C3CEDF;
+  -moz-border-end-color: #E2E9F2;
+}
+
+
+@media (max-width: 800px) {
+  .category-name { display: none; }
+}
+
+.category-name {
+  font-size: 150%;
+}
+
+.category-icon {
+  width: 32px;
+  height: 32px;
+  -moz-margin-start: 6px;
+}
+
+#stationery-category-options  .category-icon {
+  list-style-image: url("chrome://stationery/skin/settings.png");
+}
+
+#stationery-category-templates  .category-icon {
+  list-style-image: url("chrome://stationery/skin/magagement.png");
+}
+
+#stationery-category-source  .category-icon {
+  list-style-image: url("chrome://stationery/skin/syntax_editor.png");
+}
+
+
+/* templates list header*/
+
+.identity-box {
+  padding: 8px 16px 4px 16px;
+}
+
+.manage-buttons-box {
+  padding: 8px 16px 4px 16px;
+}
+
+.manage-buttons-label {
+  opacity: 0.75;
+  font-size: 85%;
+  padding-left: 24px;
+}
+
+#stationery-identities-menulist {
+  max-width: 30em;
+}
+
+.stationery-button-add {
+  list-style-image: url("chrome://stationery/skin/manage_btns.png");
+  -moz-image-region: rect(0px 64px 16px 48px);
+}
+
+.stationery-button-add:hover {
+  -moz-image-region: rect(16px 64px 32px 48px);
+}
+
+.stationery-button-add[disabled="true"] {
+  -moz-image-region: rect(32px 64px 48px 48px) !important;
+}
+
+.stationery-button-up {
+  list-style-image: url("chrome://stationery/skin/manage_btns.png");
+  -moz-image-region: rect(0px 32px 16px 16px);
+}
+
+.stationery-button-up:hover {
+  -moz-image-region: rect(16px 32px 32px 16px);
+}
+
+.stationery-button-up[disabled="true"] {
+  -moz-image-region: rect(32px 32px 48px 16px) !important;
+}
+
+.stationery-button-down{
+  list-style-image: url("chrome://stationery/skin/manage_btns.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+
+.stationery-button-down:hover {
+  -moz-image-region: rect(16px 16px 32px 0px);
+}
+
+.stationery-button-down[disabled="true"] {
+  -moz-image-region: rect(32px 16px 48px 0px) !important;
+}
+
+.stationery-button-remove {
+  list-style-image: url("chrome://stationery/skin/manage_btns.png");
+  -moz-image-region: rect(0px 80px 16px 64px);
+}
+
+.stationery-button-remove:hover {
+  -moz-image-region: rect(16px 80px 32px 64px);
+}
+
+.stationery-button-remove[disabled="true"] {
+  -moz-image-region: rect(32px 80px 48px 64px) !important;
+}
+
+/* templates list */
+
+#stationery-templates-list {
+  -moz-appearance: none;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.stationery-template-item {
+  -moz-binding: url("chrome://stationery/content/bindings/options-tab.xml#template-item");
+  padding: 2px 2px 2px 16px;
+}
+
+.stationery-template-item[drop-feedback="top"] {
+  box-shadow: 0 -2px 2px silver, 0 3px 3px gray inset;
+  border-top-color: black;
+}
+
+.stationery-template-item[drop-feedback="bottom"] {
+  box-shadow: 0 2px 2px silver, 0 -3px 3px gray inset;
+  border-bottom-color: black;
+}
+
+
+.type-icon-container {
+  width: 32px;
+  height: 32px;
+  margin: 0px 4px;
+}
+
+.type-icon {
+  max-width: 32px; max-height: 32px;
+  /* default icon */
+  list-style-image: url("chrome://stationery/skin/template-icon-blank.png");
+}
+
+.stationery-template-item[stationery-template-type="file"] .type-icon {
+  list-style-image: url("chrome://stationery/skin/template-icon-file.png");
+}
+.stationery-template-item[stationery-template-type="plain"] .type-icon {
+  list-style-image: url("chrome://stationery/skin/template-icon-plain.png");
+}
+.stationery-template-item[stationery-template-type="mbox"] .type-icon {
+  list-style-image: url("chrome://stationery/skin/template-icon-mbox.png");
+}
+
+.stationery-template-name {
+  font-size: 110%; font-weight: bold;
+}
+
+.stationery-template-url {
+  font-size: 85%; 
+}
+
+
+.colorpickertile {
+  border-radius: 3px;
+}
+
+.colorpicker-button-colorbox {
+  border-radius: 3px; 
+}
+
+
+/* options page */ 
+
+setting[type="bool"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-bool");
+}
+
+setting[type="integer"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-integer");
+}
+
+
+setting[type="defsearchpath"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-defsearchpath");
+}
+
+setting[type="syntax"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-syntax");
+}
+
+
+setting[type="radio"],
+setting[type="menulist"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-multi");
+}
+
+
+setting[type="group"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#setting-group");
+}
+
+innersetting[type="bool"] {
+  display: -moz-grid-line;
+  -moz-binding: url("chrome://stationery/content/bindings/settings.xml#innersetting-bool");
+}
+
+
+.settings-grid {
+  margin-bottom: 2em;
+  margin: 20px;
+}
+
+.settings-grid > columns > column:first-child {
+  min-width: 15em;
+  max-width: 30em;
+}
+
+setting{
+  -moz-box-align: center;
+  min-height: 30px;
+  -moz-box-align: start;
+}
+
+setting:first-child {
+  border-top: 0;
+}
+
+setting[type="radio"] > radiogroup {
+  -moz-box-orient: horizontal;
+}
+
+
+.preferences-group-title {
+  font-size: 150%;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.preferences-group-title:first-child {
+  margin-top: 0px;
+}
+
+.preferences-alignment {
+  min-height: 30px;
+  -moz-box-align: center;
+}
+
+.preferences-description {
+  font-size: 90.9%;
+  color: graytext;
+  margin-top: -2px;
+  -moz-margin-start: 2em;
+  white-space: pre-wrap;
+}
+
+.preferences-description:empty {
+  display: none;
+}
+
+
+
+
+.syntax-preview-box {
+  border: 1px solid #A9B7C9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.syntax-preview-box splitter {
+  border: none;
+  border-left: 1px solid #A9B7C9;
+  border-right: 1px solid #A9B7C9;
+  width: 4px;
+  background-color: transparent;
+}

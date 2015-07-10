@@ -1,0 +1,112 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Pond from Cloudeight's Allusions Email Stationery Collection + Artist Anastasia +
+Outlook Express Stationery + Outlook 98/2000</title>
+<bgsound
+src="file:///c:\program%20files\common%20files\microsoft%20shared\stationery\allusions-pond.mid"
+loop="-1" volume="-283">
+</head>
+
+<body background="allusions-pond.jpg"
+style="font-family: verdana, arial; font-size: 10pt; font-weight: bolder; margin-left: 79px; margin-right: 22px; margin-top: 22px; margin-bottom: 22px"
+bgcolor="#EFF9ED" text="#000000" link="#1E2F44">
+
+<p><!--webbot bot="HTMLMarkup" startspan
+alt="[&lt;b&gt;This is the OE5 Scroll Script&lt;/b&gt;]" -->
+<DIV id=imageholder style="LEFT: 0px; POSITION: absolute; TOP: 0px; Z-INDEX: -1;">
+
+<SCRIPT language=VBScript>
+<!--
+direction="up" 	 ' change the direction of the scroll here: "up" or "left" or "down" or "right"
+sizew=1300	' enter the width of the scrolling image here
+sizeh=255	' enter the height of the scrolling image here
+nail=0
+source=document.body.background
+tall=((screen.height\sizeh)+1)*2
+wide=(screen.width\sizew)+1
+
+if direction="up" then
+	max=tall
+	axis=sizeh
+	placement=0
+	reset=0
+elseif direction="left" then
+	max=wide
+	axis=sizew
+	placement=0
+	reset=0
+elseif direction="down" then
+	max=tall
+	axis=0
+	placement=-sizeh
+	reset=-sizeh
+elseif direction="right" then
+	max=wide
+	axis=0
+	placement=-sizew
+	reset=-sizew
+end if
+
+document.write "<pre>"
+for temp=0 to max
+	if direction="up" then
+		document.write "<img id=pics"&temp&" src><br>"
+ 	elseif direction="left" then
+		document.write "<img id=pics"&temp&" src>"
+	elseif direction="down" then
+		document.write "<img id=pics"&temp&" src><br>"
+	elseif direction="right" then
+		document.write "<img id=pics"&temp&" src>"
+	end if
+	document.all("pics"&temp).src=source
+next 
+document.write "</pre>"
+
+document.body.background=" "
+window.status="Visit CloudEight Stationery on the web at http://thundercloud.net/" 
+
+sub scroll() 
+	if nail=1 then
+		exit sub
+	end if
+	if placement < axis then  
+		setTimeout "move", 1 
+	else 
+		placement=reset
+		setTimeout "move", 1 
+	end if 
+end sub 
+
+sub move()
+	if direction="up" then
+		imageholder.style.top=-placement  
+	elseif direction="left" then
+		imageholder.style.left=-placement
+	elseif direction="down" then
+		imageholder.style.top=placement
+	elseif direction="right" then
+		imageholder.style.left=placement
+	end if
+	placement=placement+1
+	setTimeout "scroll", 1 
+end sub 
+
+sub imageholder_onclick()
+	if nail=0 then
+		nail=1
+	else
+		nail=0
+	end if
+	scroll()
+end sub 
+
+scroll() 
+-->
+</SCRIPT> 
+</DIV>
+<!--webbot bot="HTMLMarkup"
+endspan --></p>
+</body>
+</html>

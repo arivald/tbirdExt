@@ -1,0 +1,2 @@
+    <em:name>Stationery</em:name>
+    <em:description>Dodatek, ki je podoben predlogam programa Outlook Express.</em:description>

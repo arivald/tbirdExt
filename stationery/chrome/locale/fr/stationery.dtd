@@ -1,0 +1,59 @@
+<!ENTITY stationery.Composer.Tab.Edit "Éditer">
+<!ENTITY stationery.Composer.Tab.Source "Code source (HTML)">
+<!ENTITY stationery.Composer.Toolbutton.Change "Stationery">
+<!ENTITY stationery.Composer.Toolbutton.Change.Tip "modifier le modèle de Stationery">
+<!ENTITY stationery.Composer.findCmd.label "Chercher…">
+<!ENTITY stationery.Composer.findCmd.accesskey "C">
+
+<!ENTITY stationery.Options "Options de Stationery">
+<!ENTITY stationery.OptionsAKey "O">
+<!ENTITY stationery.Options.inline.moreOptions "Plus d'options">
+<!ENTITY stationery.Options.tabTemplates "Modèles">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Label "Identifier">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Add "Ajouter">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Add.Hint "Ajouter à la liste pour une nouvelle identité">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove "Supprimer">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove.Hint "Supprimer la liste pour l'identité choisie">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Add "Ajouter">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Add.Hint "Ajouter un nouveau modèle">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Remove "Supprimer">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Remove.Hint "Supprimer le modèle sélectionné">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.MoveUp "Monter">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.MoveUp.Hint "Faire remonter le modèle">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown "Descendre">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown.Hint "Faire descendre le modèle">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.DragnDrop.Hint "Astuce : vous pouvez glisser-déposer pour modifier l'ordre des modèles">
+
+<!ENTITY stationery.Options.tabOptions "Options">
+<!ENTITY stationery.Options.tabOptions.Gui.label1 "Dans la fenêtre principale de Thunderbird attacher à :">
+<!ENTITY stationery.Options.tabOptions.Gui.label2 "Dans la fenêtre 'Voir les messages' attacher à :">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarWriteCheckBox "Bouton 'Écrire' de la barre d'outils">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyCheckBox "Bouton 'Répondre' de la barre d'outils">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyAllCheckBox "Bouton 'Rép. à tous' de la barre d'outils">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarForwardCheckBox "Bouton 'Transférer' de la barre d'outils">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderReplyCheckBox "Boutons 'Répondre' de l'en-tête">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderForwardCheckBox "Bouton 'Transférer' de l'en-tête">
+<!ENTITY stationery.Options.tabOptions.Gui.OptionsWindowCheckBox "Insérer l'entrée 'Options de Stationery' dans le menu 'Outills'">
+<!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryCheckBox "Insérer l'entrée 'Modifier Stationery...' dans le menu contextuel de la fenêtre de rédaction">
+
+<!ENTITY stationery.Options.tabOptions.Apply.label1 "Appliquer ce papier à lettres à :">
+<!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Nouveau courrier">
+<!ENTITY stationery.Options.tabOptions.Apply.MailtoCheckBox "courrier 'mailto:'">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderCheckBox "Répondre à l'expéditeur">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyAllCheckBox "Répondre à tous">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardAttCheckBox "Faire suivre en fichier joint">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardInlCheckBox "Faire suivre avec message intégré">
+<!ENTITY stationery.Options.tabOptions.Apply.NewsCheckBox "Message de groupe de discussion">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyGroupCheckBox "Réponse à tous dans un groupe de discussion">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderGroupCheckBox "Réponse à l'expéditeur pour un groupe de discussion">
+
+<!ENTITY stationery.Options.tabSourceEditor "Éditeur de source">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Bold "gras">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Italic "italiques">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Text "texte">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Markup "balise">
+<!ENTITY stationery.Options.tabSource.SourceEdit.HtmlTags "balises HTML">
+<!ENTITY stationery.Options.tabSource.SourceEdit.AttributeName "nom d'attribut">
+<!ENTITY stationery.Options.tabSource.SourceEdit.AttributeValue "valeur de l'attribut">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Doctype "doctype">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Comment "commentaire">

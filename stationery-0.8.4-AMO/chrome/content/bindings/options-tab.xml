@@ -1,0 +1,46 @@
+﻿<?xml version="1.0"?>
+<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+project: "Stationery" extension for Thunderbird
+filename: options-tab.xml
+author: Łukasz 'Arivald' Płomiński <arivald@interia.pl>
+description: binding file to extend <editor>, primarly to allow it working with findbar
+  
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+<!DOCTYPE prefwindow SYSTEM "chrome://stationery/locale/stationery.dtd">
+
+<bindings id="stationeryOptionsTabBindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <binding id="categories-list"
+           extends="chrome://global/content/bindings/richlistbox.xml#richlistbox">
+    <implementation>
+    
+    </implementation>
+  </binding>
+  
+  <binding id="category" extends="chrome://global/content/bindings/richlistbox.xml#richlistitem">
+    <content align="center" >
+      <xul:hbox align="center" xbl:inherits="tooltiptext=name" flex="1">
+        <xul:image anonid="icon" class="category-icon"/>
+        <xul:label anonid="name" class="category-name" flex="1" xbl:inherits="value=name" />
+      </xul:hbox>
+    </content>
+  </binding>
+        
+
+  <binding id="template-item" extends="chrome://global/content/bindings/richlistbox.xml#richlistitem">
+    <content >
+      <xul:vbox class="type-icon-container" align="center">
+        <xul:image class="type-icon"/>
+      </xul:vbox>
+      <xul:vbox flex="1">            
+        <xul:label xbl:inherits="value=name" class="stationery-template-name"/>
+        <xul:label xbl:inherits="value=stationery-template-url, tooltiptext=stationery-template-url" flex="1" crop="center" class="stationery-template-url" />
+      </xul:vbox>
+    </content>
+  </binding>
+        
+</bindings>

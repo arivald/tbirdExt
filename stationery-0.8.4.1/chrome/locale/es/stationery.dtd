@@ -1,0 +1,6 @@
+<!ENTITY stationery.Composer.Tab.Edit "Editar">
+<!ENTITY stationery.Composer.Tab.Source "Código fuente (HTML)">
+<!ENTITY stationery.Composer.findCmd.label "Find...">
+<!ENTITY stationery.Composer.findCmd.accesskey "F">
+<!ENTITY stationery.Options "Opciones de Stationery">
+<!ENTITY stationery.OptionsAKey "S">

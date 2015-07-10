@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<title>CloudEight Stationery, Allusions Collection, September, 2000, With A Candle and A
+Rose</title>
+<bgsound
+src="file:///c:\program%20files\common%20files\microsoft%20shared\stationery\allusions-candle-and-rose.mid"
+loop="-1" volume="-583">
+<style>
+
+BODY { font-family: "trebuchet ms, ms sans serif, arial"; font-size: 10pt; color: bisque; font-weight: bolder;}
+a:link {  color: snow;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight: bolder;}
+a:visited {  color: snow;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight: Normal; }
+a:active {  color: snow;  font-family: "trebuchet ms, tahoma, arial";  text-decoration: none; font-size: 10pt; font-weight; Normal;  }
+a:hover {color: lightskyblue; text-decoration: underline}
+
+
+</style>
+</head>
+
+<body background="allusions-candle-and-rose.jpg" bgcolor="#A91010" class="mid&quot;"
+style="margin-left: 296; margin-right: 12; margin-top: 12; margin-bottom: 4">
+
+<p><!--webbot bot="HTMLMarkup" startspan
+alt="[&lt;b&gt;This is the OE5 Scroll Script&lt;/b&gt;]" -->
+<DIV id=imageholder style="LEFT: 0px; POSITION: absolute; TOP: 0px; Z-INDEX: -1;">
+
+<SCRIPT language=VBScript>
+<!--
+direction="up" 	 ' change the direction of the scroll here: "up" or "left" or "down" or "right"
+sizew=1300	' enter the width of the scrolling image here
+sizeh=236	' enter the height of the scrolling image here
+nail=0
+source=document.body.background
+tall=((screen.height\sizeh)+1)*2
+wide=(screen.width\sizew)+1
+
+if direction="up" then
+	max=tall
+	axis=sizeh
+	placement=0
+	reset=0
+elseif direction="left" then
+	max=wide
+	axis=sizew
+	placement=0
+	reset=0
+elseif direction="down" then
+	max=tall
+	axis=0
+	placement=-sizeh
+	reset=-sizeh
+elseif direction="right" then
+	max=wide
+	axis=0
+	placement=-sizew
+	reset=-sizew
+end if
+
+document.write "<pre>"
+for temp=0 to max
+	if direction="up" then
+		document.write "<img id=pics"&temp&" src><br>"
+ 	elseif direction="left" then
+		document.write "<img id=pics"&temp&" src>"
+	elseif direction="down" then
+		document.write "<img id=pics"&temp&" src><br>"
+	elseif direction="right" then
+		document.write "<img id=pics"&temp&" src>"
+	end if
+	document.all("pics"&temp).src=source
+next 
+document.write "</pre>"
+
+document.body.background=" "
+window.status="Visit CloudEight Stationery on the web at http://thundercloud.net/" 
+
+sub scroll() 
+	if nail=1 then
+		exit sub
+	end if
+	if placement < axis then  
+		setTimeout "move", 1 
+	else 
+		placement=reset
+		setTimeout "move", 1 
+	end if 
+end sub 
+
+sub move()
+	if direction="up" then
+		imageholder.style.top=-placement  
+	elseif direction="left" then
+		imageholder.style.left=-placement
+	elseif direction="down" then
+		imageholder.style.top=placement
+	elseif direction="right" then
+		imageholder.style.left=placement
+	end if
+	placement=placement+1
+	setTimeout "scroll", 1 
+end sub 
+
+sub imageholder_onclick()
+	if nail=0 then
+		nail=1
+	else
+		nail=0
+	end if
+	scroll()
+end sub 
+
+scroll() 
+-->
+</SCRIPT> 
+</DIV>
+<!--webbot bot="HTMLMarkup"
+endspan --> </p>
+</body>
+</html>
