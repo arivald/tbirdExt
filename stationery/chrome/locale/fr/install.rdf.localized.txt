@@ -1,2 +1,0 @@
-﻿        <em:name>Stationery</em:name>
-        <em:description>Extension qui émule le papier a lettres d'Outlook Express.</em:description>
