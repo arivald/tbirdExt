@@ -1,2 +1,0 @@
-﻿        <em:name>Stationery</em:name>
-        <em:description>Outlook Express のひな形機能を模倣する拡張。</em:description>
