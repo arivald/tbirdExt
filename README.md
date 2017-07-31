@@ -1,7 +1,7 @@
 ## Synopsis
 
 This is repository for all files related to my Thubderbird extensions, Stationery (https://addons.mozilla.org/thunderbird/addon/stationery) and Always HTML (https://addons.mozilla.org/thunderbird/addon/always-html/).
-The Stationery is and extension that allow to load a HTML template into mails, aka Stationery. It also allow to edit HTML source very easily.
+The Stationery is and extension that allow to load a HTML template into mails, aka email stationery. It also allow to edit HTML source very easily.
 The Always HTML is extracted small part of the Stationery, with sole purpose to fix one annoying mis-feature of the Thunderbird - it disables code that very often degrade HTML mails to just plain-text, without asking user at all.
 
 ## Motivation
