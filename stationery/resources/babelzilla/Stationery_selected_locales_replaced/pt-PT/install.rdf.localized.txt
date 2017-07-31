@@ -1,0 +1,2 @@
+    <em:name>Stationery</em:name>
+    <em:description>Extension to mimic Outlook Express Stationery.</em:description>

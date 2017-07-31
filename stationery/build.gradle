@@ -1,0 +1,167 @@
+import de.undercouch.gradle.tasks.download.Download
+
+plugins {
+    id "de.undercouch.download" version "3.2.0"
+}
+apply plugin: 'de.undercouch.download'
+
+group 'arivald'
+version '0.9.0.1'
+
+def aceVersion = '1.2.8'
+
+///////////////////////////////////////////////
+//No configuration below
+
+def xpiFilename = 'stationery-' + project.version + '.xpi'
+def aceDependencyDir = buildDir.absolutePath + '/dependency/ace/'
+def aceUrl = 'https://github.com/ajaxorg/ace-builds/archive/v' + aceVersion + '.zip'
+def aceZip = file(aceDependencyDir + 'v' + aceVersion + '.zip')
+def aceDir = file(aceDependencyDir + 'v' + aceVersion)
+def aceBuildDest = file('src/chrome/content/ace');
+def stationerySrcDir = file('src');
+def babelzillaLocalesDir = file('resources/babelzilla/Stationery_selected_locales_replaced')
+
+task downloadAce(type: Download) {
+    src aceUrl
+    file(aceDependencyDir).mkdirs()
+    dest aceDependencyDir
+}
+
+task unpackAce(type: Copy) {
+    if (!aceZip.exists()) {
+        dependsOn downloadAce
+    }
+
+    from zipTree(aceZip)
+    into aceDir
+}
+
+task buildAce(type: Copy) {
+    dependsOn unpackAce
+
+    def aceDirBuild = file(aceDir.absolutePath + '/ace-builds-' + aceVersion + '/src-min-noconflict')
+
+    from(aceDirBuild) {
+        include 'ace.js'
+        include 'ext-elastic_tabstops_lite.js'
+        include 'ext-error_marker.js'
+        include 'ext-language_tools.js'
+        include 'ext-searchbox.js'
+        include 'ext-split.js'
+        include 'ext-static_highlight.js'
+        include 'ext-whitespace.js'
+        include 'mode-html.js'
+        include 'snippets'
+        include 'theme-ambiance.js'
+        include 'theme-chaos.js'
+        include 'theme-chrome.js'
+        include 'theme-clouds.js'
+        include 'theme-clouds_midnight.js'
+        include 'theme-cobalt.js'
+        include 'theme-crimson_editor.js'
+        include 'theme-dawn.js'
+        include 'theme-dreamweaver.js'
+        include 'theme-eclipse.js'
+        include 'theme-github.js'
+        include 'theme-idle_fingers.js'
+        include 'theme-iplastic.js'
+        include 'theme-katzenmilch.js'
+        include 'theme-kr_theme.js'
+        include 'theme-kuroir.js'
+        include 'theme-merbivore.js'
+        include 'theme-merbivore_soft.js'
+        include 'theme-monokai.js'
+        include 'theme-mono_industrial.js'
+        include 'theme-pastel_on_dark.js'
+        include 'theme-solarized_dark.js'
+        include 'theme-solarized_light.js'
+        include 'theme-sqlserver.js'
+        include 'theme-terminal.js'
+        include 'theme-textmate.js'
+        include 'theme-tomorrow.js'
+        include 'theme-tomorrow_night.js'
+        include 'theme-tomorrow_night_blue.js'
+        include 'theme-tomorrow_night_bright.js'
+        include 'theme-tomorrow_night_eighties.js'
+        include 'theme-twilight.js'
+        include 'theme-vibrant_ink.js'
+        include 'theme-xcode.js'
+        include 'worker-html.js'
+        include 'snippets/html.js'
+
+        //patches
+        filter { line ->
+            line.replace(
+                    'function(e,t){var n=this.$foldData,r=!1,o;e instanceof s?o=e:(o=new s(t,e),o.collapseChildren=t.collapseChildren),this.$clipRangeToDocument(o.range);',
+                    //insert "t&&t.placeholder&&(o.placeholder=t.placeholder),"
+                    'function(e,t){var n=this.$foldData,r=!1,o;e instanceof s?o=e:(o=new s(t,e),o.collapseChildren=t.collapseChildren),t&&t.placeholder&&(o.placeholder=t.placeholder),this.$clipRangeToDocument(o.range);'
+            )
+        }
+        filter { line ->
+            line.replace(
+                    'return t.walk(function(e,t,o,u,a){e!=null?r.push({type:"fold",value:e}):(a&&(s=n.getTokens(t)),s.length&&i(s,u,o))},t.end.row,this.session.getLine(t.end.row).length),r},',
+                    //insert "e.length>3?"ex_fold ace_string":"
+                    'return t.walk(function(e,t,o,u,a){e!=null?r.push({type:e.length>3?"ex_fold ace_string":"fold",value:e}):(a&&(s=n.getTokens(t)),s.length&&i(s,u,o))},t.end.row,this.session.getLine(t.end.row).length),r},'
+            )
+        }
+    }
+    into file(aceBuildDest)
+
+    doFirst {
+        println 'aceDirBuild: ' + aceDirBuild.absolutePath
+        println 'aceBuildDest: ' + aceBuildDest.absolutePath
+        aceBuildDest.delete()
+        aceBuildDest.mkdirs()
+    }
+}
+
+
+
+task buildXpiFile(type: Zip) {
+    dependsOn buildAce
+
+    if (!babelzillaLocalesDir.exists()) {
+        throw new GradleException("Download replaced locales from babelzilla first!")
+    }
+
+    from(stationerySrcDir) {
+        include '**/*'
+        exclude 'chrome/locale/*'
+    }
+    from(babelzillaLocalesDir) {
+        include '*/stationery.dtd'
+        include '*/stationery.properties'
+        include '*/SyntaxPreview.html'
+        into 'chrome/locale/'
+    }
+    destinationDir buildDir
+    archiveName xpiFilename
+
+    doFirst {
+        println 'bundleArchiveName: ' + archiveName
+    }
+
+}
+
+task clean(type: Delete) {
+    delete buildDir
+    followSymlinks = false
+}
+
+task cleanDownloads(type: Delete) {
+    delete aceDependencyDir
+    followSymlinks = false
+}
+
+task cleanAll(type: Delete) {
+    dependsOn clean
+    dependsOn cleanDownloads
+
+    delete aceBuildDest;
+}
+
+task build {
+    dependsOn buildXpiFile
+}
+

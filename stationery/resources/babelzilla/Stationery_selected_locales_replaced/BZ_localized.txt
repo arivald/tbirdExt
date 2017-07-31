@@ -1,0 +1,16 @@
+    <em:localized>
+      <Description>
+        <em:locale>sl-SI</em:locale>
+        <em:name>Stationery</em:name>
+        <em:description>Dodatek, ki je podoben predlogam programa Outlook Express.</em:description>
+      </Description>
+    </em:localized>
+
+    <em:localized>
+      <Description>
+        <em:locale>zh-CN</em:locale>
+        <em:name>Stationery</em:name>
+        <em:description>模仿 Outlook Express 信纸。</em:description>
+      </Description>
+    </em:localized>
+

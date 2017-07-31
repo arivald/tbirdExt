@@ -1,3 +1,8 @@
 **/Desktop.ini
 **/Thumbs.db
 free icons/**
+*.iml
+.idea
+.gradle
+stationery/build/
+stationery/src/chrome/content/ace/

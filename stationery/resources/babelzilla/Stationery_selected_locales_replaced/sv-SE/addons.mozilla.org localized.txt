@@ -1,0 +1,18 @@
+﻿#Strings to localize addons.mozilla.org page of Stationery extension for Your language.
+#Leave English or empty if You do not care.
+
+
+#Name
+Stationery
+
+#Summary
+Tillägg som imiterar mallar i Outlook Express. Gör det möjligt att använda HTML-filer som mallar för e-post och även anpassa mallar i svar eller vidarebefordringar!
+
+#Description
+Använd rullgardinslisten i knapparna Skriv, Svara och Vidarebefordra, välj sedan "Annan mall...".
+
+Du kan använda mallfiler från MS Outlook Express som mallar, eller skapa egna mallar.
+
+Som standard blir den senaste mallen standard. Den senast använda mallen är förmodligen den mest omtyckta. Alla mallar sorteras så att den senast använda mallen placeras längst upp.
+
+Men du kan ändra standardbeteendet: Gå till Verktyg / Stationery-alternativ, fliken Alternativ och avmarkera inställningen "Hantera mallar automatiskt". Från och med nu kommer Stationery inte att uppdatera din lista över mallar, så den som är standard kommer att förbli standard tills du ändrar den manuellt i Stationery-alternativ.

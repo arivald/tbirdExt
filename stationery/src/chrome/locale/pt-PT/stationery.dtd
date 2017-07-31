@@ -1,0 +1,32 @@
+<!ENTITY stationery.Composer.Tab.Edit "Editar">
+<!ENTITY stationery.Composer.Tab.Source "Fonte (HTML)">
+<!ENTITY stationery.Composer.findCmd.label "Procurar...">
+<!ENTITY stationery.Composer.findCmd.accesskey "P">
+
+<!ENTITY stationery.Options "Opções do Stationery">
+<!ENTITY stationery.OptionsAKey "S">
+
+<!ENTITY stationery.Options.tabOptions "Opções">
+<!ENTITY stationery.Options.tabOptions.Gui.label1 "Na janela principal do Thunderbird anexar para:">
+<!ENTITY stationery.Options.tabOptions.Gui.label2 "Na janela &apos;Ver mensagem&apos; anexar para:">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarWriteCheckBox "Botão &apos;Escrever&amp;apos">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyCheckBox "Botão &apos;Responder&amp;apos">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarReplyAllCheckBox "Botão &apos;Responder a todos&amp;apos">
+<!ENTITY stationery.Options.tabOptions.Gui.ToolbarForwardCheckBox "Botão &apos;Reencaminhar&amp;apos">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderReplyCheckBox "Botões do cabeçalho &apos;Responder&apos;">
+<!ENTITY stationery.Options.tabOptions.Gui.HeaderForwardCheckBox "Botões do cabeçalho &apos;Reencaminhar&apos;">
+<!ENTITY stationery.Options.tabOptions.Gui.OptionsWindowCheckBox "Inserir o item do menu &apos;Opções do Stationery&apos;no menu &apos;Ferramentas&apos;">
+<!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryCheckBox "Inserir o item do menu &apos;Mudar Stationery...&apos; ao menu do compositor">
+
+<!ENTITY stationery.Options.tabOptions.Apply.label1 "Aplicar stationary em:">
+<!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Novo correio">
+<!ENTITY stationery.Options.tabOptions.Apply.MailtoCheckBox "&apos;mailto:&apos; mail">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderCheckBox "Responder ao remetente">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyAllCheckBox "Responder a todos">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardAttCheckBox "Reencaminhar como anexo">
+<!ENTITY stationery.Options.tabOptions.Apply.ForwardInlCheckBox "Reencaminhar em linha">
+<!ENTITY stationery.Options.tabOptions.Apply.NewsCheckBox "Tópico do grupo de discussão">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplyGroupCheckBox "Responder ao grupo de discussão">
+<!ENTITY stationery.Options.tabOptions.Apply.ReplySenderGroupCheckBox "Responder ao remetente do grupo de discussão">
+
+<!ENTITY stationery.Options.tabSourceEditor "Editor da fonte">
