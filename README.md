@@ -1,7 +1,9 @@
 ## Synopsis
 
 This is repository for all files related to my Thubderbird extensions, Stationery (https://addons.mozilla.org/thunderbird/addon/stationery) and Always HTML (https://addons.mozilla.org/thunderbird/addon/always-html/).
-The Stationery is and extension that allow to load a HTML template into mails, aka email stationery. It also allow to edit HTML source very easily.
+
+The Stationery is a extension that allow to load a HTML template into mails, aka email stationery. It also allow to edit HTML source very easily.
+
 The Always HTML is extracted small part of the Stationery, with sole purpose to fix one annoying mis-feature of the Thunderbird - it disables code that very often degrade HTML mails to just plain-text, without asking user at all.
 
 ## Motivation
@@ -11,7 +13,7 @@ Then I released it to the AMO, so everyone with similar needs could use it.
 
 ## Building
 
-To build the Stationery extension You need only the /stationery directory, it uses Gradle as build system. Use `gradle clean build` to build XPI, it will land in /stationery/build directory. `gradle cleanDownloads` or `gradle cleanAll` will remove downloaded files.
+To build the Stationery extension You need only the /stationery directory, it uses Gradle as build system, embedded version. Just enter the /stationery directory, then type `gradlew clean build` to build XPI. Build XPI will land in /stationery/build directory. `gradlew cleanDownloads` or `gradlew cleanAll` will remove downloaded files.
 
 ## License
 

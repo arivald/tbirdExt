@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'de.undercouch.download'
 
 group 'arivald'
-version '0.9.0.1'
+version '0.9.0.2'
 
 def aceVersion = '1.2.8'
 
@@ -116,8 +116,6 @@ task buildAce(type: Copy) {
     }
 }
 
-
-
 task buildXpiFile(type: Zip) {
     dependsOn buildAce
 
@@ -159,6 +157,20 @@ task cleanAll(type: Delete) {
     dependsOn cleanDownloads
 
     delete aceBuildDest;
+}
+
+task buildSourcesZipFile(type: Zip) {
+    from(rootDir) {
+        include '**/*'
+        exclude 'build'
+        exclude '.gradle'
+        exclude '.idea'
+        exclude 'chrome/content/ace/*'
+
+        into 'stationery-' + project.version + '-sources'
+    }
+    destinationDir buildDir
+    archiveName 'stationery-' + project.version + '-sources.zip'
 }
 
 task build {
