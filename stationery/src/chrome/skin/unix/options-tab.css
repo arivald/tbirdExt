@@ -1,7 +1,7 @@
 /******************************************************************************
 project: "Stationery" extension for Thunderbird
 filename: options-tab.css
-author: £ukasz 'Arivald' P³omiñski <arivald@interia.pl>
+author: ï¿½ukasz 'Arivald' Pï¿½omiï¿½ski <arivald@interia.pl>
 description:  CSS for options tab, Linux
 ******************************************************************************/
 
@@ -30,7 +30,7 @@ description:  CSS for options tab, Linux
 */
 /* templates list */
 
-.identity-box {
+.stationery-identity-box {
   border-bottom: 1px solid ThreeDLightShadow;
 }
 

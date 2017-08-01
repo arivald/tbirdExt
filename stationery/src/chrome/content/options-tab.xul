@@ -31,7 +31,7 @@
       <!-- templates management -->
       <vbox id="templates-page" flex="1" collapsed="true" style="overflow:auto;">
         <vbox class="templates-header-box">
-          <hbox align="center" class="identity-box">
+          <hbox align="center" class="stationery-identity-box">
             <label value="&stationery.Options.tabTemplates.Header.Identity.Label;"/>
             <menulist id="stationery-identities-menulist" flex="1" oncommand="onIdSelectorSelect()">
               <menupopup id="stationery-identities-menulist-menupopup"/>

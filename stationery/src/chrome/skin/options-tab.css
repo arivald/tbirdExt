@@ -1,7 +1,7 @@
 /******************************************************************************
 project: "Stationery" extension for Thunderbird
 filename: options-tab.css
-author: £ukasz 'Arivald' P³omiñski <arivald@interia.pl>
+author: ï¿½ukasz 'Arivald' Pï¿½omiï¿½ski <arivald@interia.pl>
 description:  CSS for options tab, all platforms 
 ******************************************************************************/
 
@@ -50,7 +50,7 @@ richlistitem:not([selected]) * {
   list-style-image: url("chrome://stationery/skin/syntax_editor.png");
 }
 
-#identity-box {
+#stationery-identity-box {
   padding: 8px 16px 4px 16px;
 }
 
