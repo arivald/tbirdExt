@@ -1,8 +1,5 @@
 content stationery          chrome/content/
-content stationery-platform chrome/content/ platform
-
 resource stationery         chrome/
-
 skin stationery             classic/1.0 chrome/skin/
 skin stationery-platform    classic/1.0 chrome/skin/
 

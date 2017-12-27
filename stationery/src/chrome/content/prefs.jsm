@@ -10,8 +10,8 @@ description: preferences
 //todo: import old prefs, then clear old prefs
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource://gre/modules/Services.jsm');
-Components.utils.import('resource://gre/modules/iteratorUtils.jsm');
+Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource:///modules/iteratorUtils.jsm');
 
 const EXPORTED_SYMBOLS = [];
 

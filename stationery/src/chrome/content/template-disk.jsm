@@ -8,8 +8,8 @@ description: template handler for file:// templates
 'use strict';
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource://gre/modules/Services.jsm');
-Components.utils.import("resource://gre/modules/osfile.jsm");
+Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import("resource:///modules/osfile.jsm");
 
 var EXPORTED_SYMBOLS = [];
 

@@ -19,10 +19,10 @@ description: handle dynamic menu creation and update
 
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource://gre/modules/Services.jsm');
-Components.utils.import('resource://gre/modules/iteratorUtils.jsm');
-Components.utils.import('resource://gre/modules/mailServices.js');
-Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
+Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource:///modules/iteratorUtils.jsm');
+Components.utils.import('resource:///modules/mailServices.js');
+Components.utils.import('resource:///modules/XPCOMUtils.jsm');
 
 const EXPORTED_SYMBOLS = [];
 
