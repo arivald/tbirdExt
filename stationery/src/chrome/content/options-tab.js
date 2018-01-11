@@ -8,11 +8,11 @@ description: This is JS file for options tab.
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
 
-Components.utils.import('resource://gre/modules/iteratorUtils.jsm');
-Components.utils.import('resource://gre/modules/mailServices.js');
-Components.utils.import('resource://gre/modules/Services.jsm');
-Components.utils.import('resource://gre/modules/NetUtil.jsm');
-Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
+Components.utils.import('resource:///modules/iteratorUtils.jsm');
+Components.utils.import('resource:///modules/mailServices.js');
+Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource:///modules/NetUtil.jsm');
+Components.utils.import('resource:///modules/XPCOMUtils.jsm');
 
 Stationery.definePreference('lastCategory', { type: 'int', default: 0 } );
 

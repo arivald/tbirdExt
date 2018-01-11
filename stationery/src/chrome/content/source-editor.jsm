@@ -53,7 +53,7 @@ Stationery.modules['source-editor'] = {
         TokenIterator = win.ace.require("ace/token_iterator").TokenIterator;
         
         const editor = win.ace.edit("editor");
-        
+
         editor.getSession().setMode("ace/mode/html");
         editor.setValue("");
               
@@ -147,16 +147,7 @@ editor.getSession().Stationery = Stationery;
         editorCommandTable.registerCommand('cmd_findPrev',      win.Stationery_.findAgainInSourceCommand);
         editorCommandTable.registerCommand('cmd_findReplace',   win.Stationery_.findReplaceSourceCommand);
     }
-/*     
-    if (Stationery.isOptionsWindow(win)) {
-        win.ace.require("ace/ext/language_tools");
-        
-        const editor = win.ace.edit("editor");
-        editor.setValue("test");
-        
-    }    
-*/
-     
+
   },  
 
 };

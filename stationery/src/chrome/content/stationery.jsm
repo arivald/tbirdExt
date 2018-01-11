@@ -11,36 +11,18 @@ Components.utils.import('resource://stationery/content/stationery.jsm');
 ******************************************************************************/
 'use strict';
 
-Components.utils.import('resource://gre/modules/iteratorUtils.jsm');
-Components.utils.import('resource://gre/modules/mailServices.js');
-Components.utils.import('resource://gre/modules/Services.jsm');
-Components.utils.import('resource://gre/modules/AddonManager.jsm');
-Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
+Components.utils.import('resource:///modules/iteratorUtils.jsm');
+Components.utils.import('resource:///modules/mailServices.js');
+Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource:///modules/XPCOMUtils.jsm');
 
-const EXPORTED_SYMBOLS = ['Stationery', 'stationeryExtensionGUID'];
-
-const stationeryExtensionGUID = '{d0e38b3a-0d60-46bf-bf01-83d4ba041015}';
+const EXPORTED_SYMBOLS = ['Stationery'];
 
 let Stationery = {};
 
-/*
-let s = window.performance.now();    
-Stationery.alert(''+window.performance.now() - s);
-*/
-
-//for modules 
+//for modules
 Stationery.modules = {};
   
-//detect this extension version and other data
-Stationery.addonVersion = false;
-
-AddonManager.getAddonByID(stationeryExtensionGUID, function(addon) { 
-  Stationery.addonVersion = addon.version;
-} );
-
-//todo: try use log4moz
-//Components.utils.import("resource://gre/modules/gloda/log4moz.js"); 
-
 //general exception handler.
 Stationery.handleException = function(e, alertMessage) {
   try {
@@ -76,7 +58,7 @@ Stationery.handleException = function(e, alertMessage) {
       Services.prompt.alert(null, 'Stationery exception [DEBUG]', 'Exception type: ' + typeof(e) + ', ' + e.toString() + "\n\n" + message);
     
   } catch(e2){
-    //unlikelly, but happen while component is loaded...
+    //unlikely, but happen while component is loaded...
     Components.utils.reportError("WARNING! Stationery.handleException() failed!\nError messages:\n" + e2.message + "\nOriginal exception:\n" + e.message);
   }
   if (alertMessage)
@@ -306,23 +288,6 @@ Stationery.fireEvent = function(win, eventName) {
   event.initEvent('stationery-' + eventName, true, false);
   win.dispatchEvent(event);
 }
-
-Stationery.fireAsyncEvent = function(win, eventName) {
-  win.setTimeout(function() {
-    let event = win.document.createEvent("Events");
-    event.initEvent('stationery-' + eventName, true, false);
-    win.dispatchEvent(event);
-  }, 0);
-}
-
-Stationery.fireCancellableEvent = function(win, eventName) {
-  //fire event to notify other code that template will be loaded  
-  let event = win.document.createEvent("Events");
-  event.initEvent('stationery-' + eventName, true, true);
-  return win.dispatchEvent(event);
-}
-
-
 
 Stationery.getURIContent = function(URI) {
   let input = Services.io.newChannel2(
