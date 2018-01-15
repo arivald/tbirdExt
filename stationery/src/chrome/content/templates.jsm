@@ -8,7 +8,7 @@ description: teplates object
 'use strict';
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
 Components.utils.import('resource:///modules/mailServices.js');
 
@@ -444,7 +444,7 @@ Stationery.templates = {
     
     //preprocessing
     if ('HTML' in template) {
-      for(const f in fixIterator(fixers)) {
+      for(const f of fixIterator(fixers)) {
         if ('preprocessHTML' in f) {
           try {
             f.preprocessHTML(template);
@@ -453,7 +453,7 @@ Stationery.templates = {
       }
     }
     if ('Text' in template) {
-      for(const f in fixIterator(fixers)) {
+      for(const f of fixIterator(fixers)) {
         if ('preprocessText' in f) {
           try {
             f.preprocessText(template);
@@ -472,7 +472,7 @@ Stationery.templates = {
       } catch (e) { Stationery.handleException(e); }
     }
   
-    for(const f in fixIterator(fixers)) {
+    for(const f of fixIterator(fixers)) {
       if ('postprocess' in f) {
         try {
           f.postprocess(template, HTMLEditor, gMsgCompose, Stationery_);

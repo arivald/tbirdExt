@@ -13,8 +13,8 @@ Components.utils.import('resource://stationery/content/stationery.jsm');
 
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
 Components.utils.import('resource:///modules/mailServices.js');
-Components.utils.import('resource:///modules/Services.jsm');
-Components.utils.import('resource:///modules/XPCOMUtils.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
+Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
 
 const EXPORTED_SYMBOLS = ['Stationery'];
 
@@ -28,35 +28,8 @@ Stationery.handleException = function(e, alertMessage) {
   try {
     let message;
     if (typeof e == 'string') message = e; else message = e.message;
-      
-    let sourceName = '';
-    let sourceLine = '';
-    let lineNumber = 0;
-    let columnNumber = 0;
-    
-    if(e.QueryInterface) {
-      if(e.QueryInterface(Components.interfaces.nsIException)) {
-        sourceName = e.filename;
-        if(e.location) sourceLine = e.location.sourceLine;
-        lineNumber = e.lineNumber;
-        columnNumber = e.columnNumber;  
-      }
-    } else {
-      if(e.stack) sourceLine = e.stack;
-      if(e.sourceName) sourceName = e.stack;
-      if(e.fileName) sourceName = e.fileName;
-      if(e.lineNumber) lineNumber = e.lineNumber;
-    }
-    
-    let errorObject = Stationery.XPCOM('nsIScriptError');
-    errorObject.init('Stationery: ' + message, sourceName, sourceLine, lineNumber, columnNumber, errorObject.errorFlag, 'Stationery');
-    Services.console.logMessage(errorObject);
-    
-    //debug only
-    let prefsBranch = Services.prefs.getBranch('extensions.stationery.debug.');
-    if ((prefsBranch.getPrefType('alertOnException') == prefsBranch.PREF_BOOL) && prefsBranch.getBoolPref('alertOnException'))
-      Services.prompt.alert(null, 'Stationery exception [DEBUG]', 'Exception type: ' + typeof(e) + ', ' + e.toString() + "\n\n" + message);
-    
+    Components.utils.reportError(message);
+
   } catch(e2){
     //unlikely, but happen while component is loaded...
     Components.utils.reportError("WARNING! Stationery.handleException() failed!\nError messages:\n" + e2.message + "\nOriginal exception:\n" + e.message);
@@ -94,7 +67,7 @@ Stationery.XPCOM = function(interfaceName) {
 let ci = Components.interfaces;
 Stationery.RegisterXPCOM('nsIScriptError', '@mozilla.org/scripterror;1', ci.nsIScriptError);
 Stationery.RegisterXPCOM('nsIFilePicker', '@mozilla.org/filepicker;1', ci.nsIFilePicker);
-Stationery.RegisterXPCOM('nsILocalFile', '@mozilla.org/file/local;1', ci.nsILocalFile);
+Stationery.RegisterXPCOM('nsIFile', '@mozilla.org/file/local;1', ci.nsIFile);
 Stationery.RegisterXPCOM('nsIScriptableUnicodeConverter', '@mozilla.org/intl/scriptableunicodeconverter', ci.nsIScriptableUnicodeConverter);
 Stationery.RegisterXPCOM('nsITimer', '@mozilla.org/timer;1', ci.nsITimer);
 
@@ -308,6 +281,8 @@ Stationery.getURIContent = function(URI) {
   return { content: content, contentType: input.contentType };
 }
    
+/////////////////////////////////////////////////////////////////////////////////////
+
 Stationery.guessContentType = function (content /*binary string*/, defaultType) {
 
   let c0 = content.charAt(0);
@@ -327,7 +302,31 @@ Stationery.guessContentType = function (content /*binary string*/, defaultType) 
  return defaultType;
 }
 
-  
+Stationery.waitForPromise = function (promise) {
+  let done = false, success, failure;
+  let thread = Components.classes["@mozilla.org/thread-manager;1"].getService().currentThread;
+
+  promise.then(
+    (resolved) => {
+      done = true;
+      success = resolved;
+    },
+    (error) => {
+      done = true;
+      failure = error;
+    });
+
+  while (!done) {
+    try {
+      thread.processNextEvent(true);
+    } catch (e) {
+      done = true;
+    }
+  }
+
+  return {success: success, failure: failure}
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 //load other modules
 

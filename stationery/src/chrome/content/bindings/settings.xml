@@ -277,12 +277,12 @@ description: binding file to extend <editor>, primarly to allow it working with 
           
           if (this.option.value == 'profile') {
             try {
-              let directory = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+              let directory = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
               directory.appendRelativePath(this.path.value);
               fp.displayDirectory = directory;
             } catch(e) { Stationery.handleException(e); }
             
-            let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+            let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
             
             if (fp.show() == fp.returnOK) {
               if(profileDir.contains(fp.file, true))
@@ -298,20 +298,22 @@ description: binding file to extend <editor>, primarly to allow it working with 
           } else { // this.option.value == 'any'
             try {
               if (this.path.value != '' ) {
-                let directory = Stationery.XPCOM('nsILocalFile');
+                let directory = Stationery.XPCOM('nsIFile');
                 directory.initWithPath(this.path.value);
                 fp.displayDirectory = directory;
               } else
                 if(Stationery.OSisUnix)
-                  fp.displayDirectory = Services.dirsvc.get('Home', Components.interfaces.nsILocalFile)
+                  fp.displayDirectory = Services.dirsvc.get('Home', Components.interfaces.nsIFile)
                 else
-                  fp.displayDirectory = Services.dirsvc.get('DeskV', Components.interfaces.nsILocalFile);
+                  fp.displayDirectory = Services.dirsvc.get('DeskV', Components.interfaces.nsIFile);
             } catch(e) { Stationery.handleException(e); }
-            
-            if (fp.show() == fp.returnOK) {
-              this.path.value = fp.file.path;
-              this.inputChanged();
-            }
+
+            fp.open(function (rv) {
+              if (rv == fp.returnOK) {
+                this.path.value = fp.file.path;
+                this.inputChanged();
+              }
+            });
           }
         ]]>
         </body>
@@ -346,7 +348,7 @@ description: binding file to extend <editor>, primarly to allow it working with 
             this.path.value = val.substr(11);
             this._pSaver = this.path.value;
 
-            let directory = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+            let directory = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
             directory.appendRelativePath(this.path.value);
             this.tooltipText = directory.path;
             

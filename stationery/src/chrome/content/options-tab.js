@@ -9,10 +9,10 @@ description: This is JS file for options tab.
 Components.utils.import('resource://stationery/content/stationery.jsm');
 
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
+Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
+Components.utils.import('resource://gre/modules/NetUtil.jsm');
 Components.utils.import('resource:///modules/mailServices.js');
-Components.utils.import('resource:///modules/Services.jsm');
-Components.utils.import('resource:///modules/NetUtil.jsm');
-Components.utils.import('resource:///modules/XPCOMUtils.jsm');
 
 Stationery.definePreference('lastCategory', { type: 'int', default: 0 } );
 
@@ -108,7 +108,7 @@ function updateIdentitiesSelector(selectedId) {
   }));
   idSelectorMenupopup.appendChild(Stationery.makeElement(document, 'menuseparator', {}));
     
-  for (let idn in  Stationery.templates.getIdentitiesIterator(false)) {
+  for (let idn of Stationery.templates.getIdentitiesIterator(false)) {
     idSelectorMenupopup.appendChild(Stationery.makeElement(document, 'menuitem', {
       label: idn.identity.identityName,
       attr: [ {name: 'value', value: idn.identity.key}, ],
@@ -125,7 +125,7 @@ function addNewIdentityList() {
     let selected = {};
     let items = [];
     let name2key = {}
-    for (let idn in Stationery.templates.getIdentitiesIterator(true)) 
+    for (let idn of Stationery.templates.getIdentitiesIterator(true))
       if (!Stationery.templates.isIdentityUsed(idn.identity.key)) {
         items.push(idn.identity.identityName);
         name2key[idn.identity.identityName] = idn.identity.key;
@@ -180,7 +180,7 @@ function reFillTemplatesList() {
       while(templatesList.firstChild) 
         templatesList.removeChild(templatesList.firstChild);
 
-      for (let template in Stationery.templates.getTemplatesIterator(identityKey)) {
+      for (let template of Stationery.templates.getTemplatesIterator(identityKey)) {
         templatesList.appendChild(Stationery.makeElement(document, 'richlistitem', {
           class: 'stationery-template-item',
           attr: [
@@ -328,7 +328,7 @@ function addTemplateHandler(event) {
   let handlerType = event.target.getAttribute('stationery-handler-type');
   let identityKey = document.getElementById('stationery-identities-menulist').value;
   
-  let template = Stationery.templates.addNewTemplate(window, identityKey, handlerType);
+  Stationery.templates.addNewTemplate(window, identityKey, handlerType);
 }
 
 function prepareAddTemplateButton() {
@@ -340,7 +340,7 @@ function prepareAddTemplateButton() {
     menupopup.childNodes[i].parentNode.removeChild(menupopup.childNodes[i]);
   
   //iterate handlers and add menus
-  for (let menuitem in Stationery.templates.getHandlerOptionsAddMenuitemIterator(document)) {
+  for (let menuitem of Stationery.templates.getHandlerOptionsAddMenuitemIterator(document)) {
     menupopup.appendChild(Stationery.setupElement(menuitem, {
       events: [ {name: 'command', value: addTemplateHandler } ],
     }) );

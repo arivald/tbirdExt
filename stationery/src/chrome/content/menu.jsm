@@ -19,10 +19,10 @@ description: handle dynamic menu creation and update
 
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
+Components.utils.import('resource://gre/modules/XPCOMUtils.jsm');
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
 Components.utils.import('resource:///modules/mailServices.js');
-Components.utils.import('resource:///modules/XPCOMUtils.jsm');
 
 const EXPORTED_SYMBOLS = [];
 
@@ -195,13 +195,12 @@ Stationery.setupElement = function(element, v) {
 
   if ('class' in v) Stationery.addClass(element, v['class']);
 
-  
-  if ('attr' in v) for (let a in fixIterator(v['attr'])) {
+  if ('attr' in v) for (let a of fixIterator(v['attr'])) {
     if ('remove' in a) element.removeAttribute(a.name);
     if ('value' in a) element.setAttribute(a.name, a.value);
   }
   if ('events' in v) {
-    for (let e in fixIterator(v['events'])) {
+    for (let e of fixIterator(v['events'])) {
       element.addEventListener(e.name, e.value, 'useCapture' in e ? e.useCapture : false );
     }
   }
@@ -411,7 +410,7 @@ let updateAllStationeryMenusTimer = Stationery.makeTimer();
 function updateAllStationeryMenus() {
   updateAllStationeryMenusTimer.startTimeout(function () { 
     allWindowTypes.forEach(function (winType) {
-      for (let win in fixIterator(Services.wm.getEnumerator(winType), Components.interfaces.nsIDOMWindow)) {        
+      for (let win of fixIterator(Services.wm.getEnumerator(winType), Components.interfaces.nsIDOMWindow)) {        
         allAllStationeryBaseId.forEach(function (id) { 
           try {
             updateStationeryMenu(win, id) 
@@ -638,7 +637,7 @@ function onStationeryMenuPopup(event) {
       nodesToDelete[i].parentNode.removeChild(nodesToDelete[i]);
     
     //create items
-    for (let template in Stationery.templates.getTemplatesIterator(identityKey)) {
+    for (let template of Stationery.templates.getTemplatesIterator(identityKey)) {
       //filter by flags
       if (Stationery.templates.haveFlag(template, flag)) continue;
     
@@ -661,7 +660,7 @@ function onStationeryMenuPopup(event) {
     }));
     
     //iterate handlers and add menus
-    for (let menuitem in Stationery.templates.getHandlerMenuitemIterator(doc)) {
+    for (let menuitem of Stationery.templates.getHandlerMenuitemIterator(doc)) {
       menupopup.appendChild(Stationery.setupElement(menuitem, {
         attr: [
           {name: 'stationery-menuitem', value: 'true'},

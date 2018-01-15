@@ -7,10 +7,8 @@ description: preferences
 ******************************************************************************/
 'use strict';
 
-//todo: import old prefs, then clear old prefs
-
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
 
 const EXPORTED_SYMBOLS = [];
@@ -61,7 +59,12 @@ function getPref(name, branch) {
         case PT_STRING: return branch.getCharPref(name);
         case PT_INT: return branch.getIntPref(name);
         case PT_BOOL: return branch.getBoolPref(name);
-        case PT_UNICODE: return branch.getComplexValue(name, Components.interfaces.nsISupportsString).data;
+        case PT_UNICODE:
+            try {
+                return branch.getStringPref(name);
+            } catch(e) {
+                return branch.getComplexValue(name, Components.interfaces.nsISupportsString).data;
+            }
         case PT_JSON: return JSON.parse(branch.getCharPref(name));
       }
     //else return default value
@@ -90,11 +93,15 @@ function setPref(name, value, branch) {
       case PT_JSON: 
         branch.setCharPref(name, JSON.stringify(value).replace(encode_regex, encode_replacement));
         break;
-      case PT_UNICODE: 
-        const s = Stationery.XPCOM('nsISupportsString');
-        s.data = value;
-        branch.setComplexValue(name, Components.interfaces.nsISupportsString, s);
-        break;
+      case PT_UNICODE:
+          try {
+            branch.setStringPref(name, value);
+          } catch(e) {
+            const s = Stationery.XPCOM('nsISupportsString');
+            s.data = value;
+            branch.setComplexValue(name, Components.interfaces.nsISupportsString, s);
+          }
+      break;
     }
   } catch (e) { Stationery.handleException(e); }
 }
@@ -159,7 +166,7 @@ if ( valuesBranch.getPrefType('Templates') == valuesBranch.PREF_INVALID ) {
 
       //import old templates
       
-      const makeAbbrevTamplateName = function (templateUrl) {
+      const makeAbbrevTemplateName = function (templateUrl) {
         templateUrl = templateUrl.replace('profile:///', Stationery.getFilePathSeparator());
         templateUrl = templateUrl.substring(templateUrl.lastIndexOf(Stationery.getFilePathSeparator()) + 1, templateUrl.length);
         return templateUrl.substring(0, templateUrl.lastIndexOf("."));
@@ -172,7 +179,7 @@ if ( valuesBranch.getPrefType('Templates') == valuesBranch.PREF_INVALID ) {
           const tmp = decodeURI(oldBranch.getCharPref('Template' + i));
           if( tmp != '')
             if( (-1 != tmp.indexOf(Stationery.getFilePathSeparator())) || (tmp.substr(0, 11) == 'profile:///'))
-              templates['*'].push( { type: 'file', name: makeAbbrevTamplateName(tmp), url: tmp } );
+              templates['*'].push( { type: 'file', name: makeAbbrevTemplateName(tmp), url: tmp } );
             else 
               if(!blankFound) { //add only first 'blank', rest are trash
                 blankFound = true; templates['*'].push( { type: 'blank', name: Stationery._('template.blank.name'), url: 'blank' } );

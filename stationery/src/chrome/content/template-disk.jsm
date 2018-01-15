@@ -8,8 +8,8 @@ description: template handler for file:// templates
 'use strict';
 
 Components.utils.import('resource://stationery/content/stationery.jsm');
-Components.utils.import('resource:///modules/Services.jsm');
-Components.utils.import("resource:///modules/osfile.jsm");
+Components.utils.import('resource://gre/modules/Services.jsm');
+Components.utils.import("resource://gre/modules/osfile.jsm");
 
 var EXPORTED_SYMBOLS = [];
 
@@ -30,7 +30,7 @@ Stationery.templates.registerHandler({
   //should load template, and add 'template.HTML' and/or 'template.Text' properties to template (for HTML or plainText template).
   //in case of error should set 'template.loadingError' to string describing error
   loadTemplate: function(template) { 
-    //todo: currently only HMTL files, in future add support for plain-text files
+    //todo: currently only HTML files, in future add support for plain-text files
     readHTMLTemplateFile(template);
   },
   
@@ -88,7 +88,7 @@ Stationery.templates.registerHandler({
 // private utility functions 
 
 function openNewTemplate(win) {
-  let template = null;
+  let template = false;
   
   // code to open file on disk 
   let fp = Stationery.XPCOM('nsIFilePicker');
@@ -96,27 +96,44 @@ function openNewTemplate(win) {
   fp.appendFilters(fp.filterHTML);
   
   let defaultSearchPath = Stationery.getPref('DefaultSearchPath');
-  if (defaultSearchPath != '')
+  if (defaultSearchPath != '') {
     if (defaultSearchPath.substr(0, 11) == 'profile:///') {
-      let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+      let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
       profileDir.appendRelativePath(defaultSearchPath.substr(11))
       if(!profileDir.exists()) 
         profileDir.create(profileDir.DIRECTORY_TYPE, 777);
       fp.displayDirectory = profileDir;
     } else {
-      let directory = Stationery.XPCOM('nsILocalFile');
+      let directory = Stationery.XPCOM('nsIFile');
       directory.initWithPath(defaultSearchPath);
       fp.displayDirectory = directory;
     }
+  }
 
-  if (fp.show() == fp.returnOK)
-    return Stationery.templates.makeTemplate(handlerType, makeAbbrevTamplateName(fp.file.path), filePathToTemplateUrl(fp.file.path));
+  let result = Stationery.waitForPromise(
+    new Promise((resolve, reject) => {
+      fp.open(function(result) {
+        if (result == fp.returnOK) {
+          try {
+            resolve(Stationery.templates.makeTemplate(handlerType, makeAbbrevTemplateName(fp.file.path), filePathToTemplateUrl(fp.file.path)));
+            return;
+          } catch (e) {
+            Stationery.handleException(e);
+          }
+        }
+        reject(false);
+      });
+    })
+  );
+  if (result.success) {
+    return result.success;
+  }
   return false;
 }
 
 function templateUrlToRealFilePath(templateUrl) {
   if (templateUrl.substr(0, 11) == 'profile:///') {
-    let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+    let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
     templateUrl = templateUrl.replace('profile:///', profileDir.path + Stationery.getFilePathSeparator());
   }
   //fix slash and back-slash to platform one  
@@ -124,11 +141,11 @@ function templateUrlToRealFilePath(templateUrl) {
 }
 
 function filePathToTemplateUrl(filePath) {
-  let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsILocalFile);
+  let profileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile);
   return filePath.replace(profileDir.path + Stationery.getFilePathSeparator(), 'profile:///');
 }
 
-function makeAbbrevTamplateName(templateUrl) {
+function makeAbbrevTemplateName(templateUrl) {
   templateUrl = templateUrl.replace('profile:///', Stationery.getFilePathSeparator());
   templateUrl = templateUrl.substring(templateUrl.lastIndexOf(Stationery.getFilePathSeparator()) + 1, templateUrl.length);
   return templateUrl.substring(0, templateUrl.lastIndexOf("."));
@@ -136,12 +153,10 @@ function makeAbbrevTamplateName(templateUrl) {
 
 function readHTMLTemplateFile(template) {
   try {
-    let pathToprofileDir = Services.dirsvc.get('ProfD', Components.interfaces.nsIFile).path;
-    
     template.filePath = templateUrlToRealFilePath(template.url);
     
     let is, sis;
-    let file = Stationery.XPCOM('nsILocalFile');
+    let file = Stationery.XPCOM('nsIFile');
     try {
       file.initWithPath(template.filePath);
       if (!file.exists()) {
@@ -155,7 +170,6 @@ function readHTMLTemplateFile(template) {
       sis.init(is);
       //read header, look for BOM (byte-order-mark) characters.
       let bom = sis.read(3);
-      //is.QueryInterface(Components.interfaces.nsISeekableStream).seek(is.NS_SEEK_SET, 0);
       is.seek(is.NS_SEEK_SET, 0);
       
       let bomCharset = false;
@@ -172,7 +186,9 @@ function readHTMLTemplateFile(template) {
         sis = Stationery.XPCOM('nsIConverterInputStream');
         sis.init(is, bomCharset, is.available(), sis.DEFAULT_REPLACEMENT_CHARACTER);
         let str = {};
-        while (sis.readString(-1, str) != 0) template.HTML = template.HTML + str.value
+        while (sis.readString(-1, str) != 0) {
+          template.HTML = template.HTML + str.value;
+        }
         sis.close();
         
       } else {
@@ -183,19 +199,26 @@ function readHTMLTemplateFile(template) {
         //try speed up, by copying all text till </head> into variable        
         let head = template.HTML.replace(/(.*)\/head/i);
         let CSet = head.match(/<\?.*xml .*encoding *= *["'](.*)["'].*\?>/i);
-        if (CSet) CSet = CSet[1];
+        if (CSet) {
+          CSet = CSet[1];
+        }
         else {
           CSet = head.match(/<META +HTTP-EQUIV *= *["']Content-Type["'].*CONTENT *= *["'].*; *charset= *["']?(.*?)["']?["'].*>/i);
-          if (CSet) CSet = CSet[1]
-          else {
+          if (CSet) {
+            CSet = CSet[1]
+          } else {
             CSet = head.match(/<META +CONTENT *= *["'].*; *charset= *["']?(.*?)["']?["'].*HTTP-EQUIV *= *["']Content-Type["'].*>/i);
-            if (CSet) CSet = CSet[1];
+            if (CSet) {
+              CSet = CSet[1];
+            }
           }
         }
-        if (!CSet) 
+        if (!CSet) {
           CSet = Stationery.getPref('DefaultTemplateEncoding');
-        if (CSet) 
+        }
+        if (CSet) {
           template.HTML = Stationery.toUnicode(CSet, template.HTML);
+        }
       }
     } catch (e) {
       Stationery.handleException(e);
@@ -222,7 +245,9 @@ function convertImagesUrls(htmlDocument, newBasePath) {
     try {
       //try read file - if all ok, then replace src
       content = Stationery.getURIContent(filename);
-      if (!content.contentType) content.contentType = Stationery.guessContentType(content.content, 'image/png');
+      if (!content.contentType) {
+        content.contentType = Stationery.guessContentType(content.content, 'image/png');
+      }
       node.setAttribute(attrib, 'data:' + content.contentType + ";filename=" + encodeURIComponent(OS.Path.basename(unescape(filename))) + ';base64,' + btoa(content.content) );
     } catch (e) {
         Stationery.handleException(e);
@@ -230,10 +255,14 @@ function convertImagesUrls(htmlDocument, newBasePath) {
   }
 
   let bodyNodes = htmlDocument.getElementsByTagName('BODY');
-  for (let i = 0 ; i < bodyNodes.length; i++) convertUrl(bodyNodes[i], 'background');
+  for (let i = 0 ; i < bodyNodes.length; i++) {
+    convertUrl(bodyNodes[i], 'background');
+  }
 
   let imgNodes = htmlDocument.getElementsByTagName('IMG');
-  for (let i = 0 ; i < imgNodes.length; i++) convertUrl(imgNodes[i], 'src');
+  for (let i = 0 ; i < imgNodes.length; i++) {
+    convertUrl(imgNodes[i], 'src');
+  }
   
   //todo fix patchs in CSS ?
 }

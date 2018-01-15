@@ -7,7 +7,7 @@ description: This is JS file for composer window.
 
 Components.utils.import('resource:///modules/iteratorUtils.jsm');
 Components.utils.import('resource:///modules/mailServices.js');
-Components.utils.import('resource:///modules/Services.jsm');
+Components.utils.import('resource://gre/modules/Services.jsm');
 
 
 Stationery_.orignalGenericSendMessage = GenericSendMessage;

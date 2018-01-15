@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'de.undercouch.download'
 
 group 'arivald'
-version '0.9.0.2'
+version '0.9.1.b1'
 
 def aceVersion = '1.2.8'
 
