@@ -25,7 +25,7 @@ def babelzillaLocalesDir = file('resources/babelzilla/Stationery_selected_locale
 task downloadAce(type: Download) {
     src aceUrl
     file(aceDependencyDir).mkdirs()
-    dest aceDependencyDir
+    dest aceZip
 }
 
 task unpackAce(type: Copy) {
