@@ -15,6 +15,6 @@ As template you may use template files from MS Outlook Express. Or you may write
 
 By default, last used template become default one. It incorporates idea: Last time used template is probably most liked one. It make all templates sorted, most recently used going on top.
 
-But You can change default behavior: simply go to <strong>Tools</strong> / <strong>Stationery options</strong>, tab <strong>Options</strong>, and un-check <strong>Enable automatic templates management</strong> checkbox. From now, <strong>Stationery</strong> will not update your list of templates, so default one will stay defaut until you change it manually in <strong>Stationery options</strong>.
+But You can change default behavior: simply go to <strong>Tools</strong> / <strong>Stationery options</strong>, tab <strong>Options</strong>, and un-check <strong>Enable automatic templates management</strong> checkbox. From now, <strong>Stationery</strong> will not update your list of templates, so default one will stay default until you change it manually in <strong>Stationery options</strong>.
 
 Stationery now also works in cooperation with the <a href="https://addons.mozilla.org/thunderbird/addon/324497/">SmartTemplate4</a> Add-on, to provide an even richer and better experience. SmartTemplate4 allows you to customize your templates beyond just design, by inserting information from the mail header. Read details on the SmartTemplate4 Add-on page or on its <a href="http://smarttemplate4.mozdev.org/stationery.html">Support Page for Stationery integration</a>.
