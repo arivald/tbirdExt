@@ -8,11 +8,11 @@ description: handle dynamic menu creation and update
 'use strict';
 
 /*
-  todo: adopt 'handlers" idea, so any operation will first get handler, then handler will do required updates.
+  todo: adopt 'handlers" idea, so any operation will get handler first, then handler will do required updates.
   
   so far we need 3 types of handlers: 
     * toolbar button, with direct menu
-    * message header button, with Stationery emenu in sub-menu (todo: allow direct menu, if there is no other menu)
+    * message header button, with Stationery menu in sub-menu (todo: allow direct menu, if there is no other menu)
     * composer context sub-menu
 
 */

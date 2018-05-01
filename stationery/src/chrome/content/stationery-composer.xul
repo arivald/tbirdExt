@@ -4,7 +4,7 @@
 project: "Stationery" extension for Thunderbird
 filename: stationery-composer.xul
 author: Łukasz 'Arivald' Płomiński <arivald@interia.pl>
-description: <overlay> for 
+description: <overlay> for
   chrome://messenger/content/messengercompose/messengercompose.xul.
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 
@@ -30,10 +30,6 @@ description: <overlay> for
       label="&stationery.Composer.Toolbutton.Change;" tooltiptext="&stationery.Composer.Toolbutton.Change.Tip;" />
   </toolbarpalette>  
 
-  <!-- TODO both bellow not needed anymore since TB 24 -->
-  <listbox id="addressingWidget" rows="1"/>
-  <listbox id="attachmentBucket" rows="1"/>
-    
   <vbox id="appcontent">
     <hbox id="stationery-tabbox-box" insertbefore="content-frame">
       <tabbox id="stationery-content-tab" collapsed="true">
@@ -43,18 +39,6 @@ description: <overlay> for
         </tabs> 
       </tabbox>
     </hbox>
-    
-    <menupopup id="stationery-SourceViewContext">
-      <menuitem label="&undo.label;" accesskey="&undo.accesskey;" command="cmd_undo"/>
-      <menuitem label="&cut.label;" accesskey="&cut.accesskey;" command="cmd_cut"/>
-      <menuitem label="&copy.label;" accesskey="&copy.accesskey;" command="cmd_copy"/>
-      <menuitem label="&paste.label;" accesskey="&paste.accesskey;" command="cmd_paste"/>
-      <menuitem label="&delete.label;" accesskey="&delete.accesskey;" command="cmd_delete"/>
-      <menuitem label="&stationery.Composer.findCmd.label;" accesskey="&stationery.Composer.findCmd.accesskey;" 
-                oncommand="document.getElementById('stationery-content-source-findbar').onFindCommand()"/>
-      <menuseparator/>
-      <menuitem label="&selectAll.label;" accesskey="&selectAll.accesskey;" command="cmd_selectAll"/>
-    </menupopup>
     
     <vbox id="stationery-content-source-box" flex="1" collapsed="true">
       <iframe id="stationery-content-source-ace" data-preview="true" flex="1" src="chrome://stationery/content/html-source-editor.html" />

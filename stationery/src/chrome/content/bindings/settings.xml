@@ -3,10 +3,7 @@
 project: "Stationery" extension for Thunderbird
 filename: editor.xml
 author: Łukasz 'Arivald' Płomiński <arivald@interia.pl>
-description: binding file to extend <editor>, primarly to allow it working with findbar
-  
-  This file extends "chrome://global/content/bindings/editor.xml", and
-  uses parts of code from there. Original file is under Mozilla Public License.
+description: binding for obsoleted <setting> elements.
   
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 
@@ -18,7 +15,7 @@ description: binding file to extend <editor>, primarly to allow it working with 
           xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
           xmlns:html="http://www.w3.org/1999/xhtml">
   
-  <binding id="stationery-setting-base" extends="chrome://mozapps/content/extensions/setting.xml#setting-base">  
+  <binding id="stationery-setting-base" extends="chrome://stationery/content/bindings/setting.xml#setting-base">  
     <implementation>
       <constructor><![CDATA[
         Components.utils.import('resource://stationery/content/stationery.jsm');
@@ -173,7 +170,8 @@ description: binding file to extend <editor>, primarly to allow it working with 
     </content>
 
     <implementation>
-      <property name="value" onget="return this.inverted ? !this.input.checked : this.input.checked;" onset="return this.input.setChecked(this.inverted ? !val : val);"/>
+      <property name="value" onget="return this.inverted ? !this.input.checked : this.input.checked;"
+                onset="return this.input.setChecked(this.inverted ? !val : val);"/>
       <property name="inverted" readonly="true" onget="return this.getAttribute('inverted');"/>
     </implementation>
   </binding>

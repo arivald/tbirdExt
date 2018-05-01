@@ -3,7 +3,7 @@
 project: "Stationery" extension for Thunderbird
 filename: options-tab.xml
 author: Łukasz 'Arivald' Płomiński <arivald@interia.pl>
-description: binding file to extend <editor>, primarly to allow it working with findbar
+description: binding file for options in tab page.
   
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
 <!DOCTYPE prefwindow SYSTEM "chrome://stationery/locale/stationery.dtd">
@@ -92,7 +92,6 @@ description: binding file to extend <editor>, primarly to allow it working with 
         <![CDATA[
           let uid = this.getAttribute('stationery-template');
           let newValue = Stationery.templates.onTemplatePropertyEdited(uid, 'name', this._title_edit.value);
-//Components.utils.reportError("titleChanged: uid:" + uid + "  new: " + this._title_edit.value);
           this._title_edit.value = newValue;
           this._title.value = newValue;
         ]]>

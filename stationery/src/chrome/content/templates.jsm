@@ -2,7 +2,7 @@
 project: "Stationery" extension for Thunderbird
 filename: templates.jsm
 author: Łukasz 'Arivald' Płomiński <arivald@interia.pl>
-description: teplates object
+description: templates object
 
 ******************************************************************************/
 'use strict';

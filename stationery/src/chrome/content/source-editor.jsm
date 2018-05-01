@@ -56,12 +56,7 @@ Stationery.modules['source-editor'] = {
 
         editor.getSession().setMode("ace/mode/html");
         editor.setValue("");
-              
-//todo
-//debug only!!
-editor.getSession().Stationery = Stationery;
-//END debug
-        
+
         //windows version
         //todo: handle linux / Mac !
         editor.commands.addCommand({
