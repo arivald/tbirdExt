@@ -3,7 +3,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>{d0e38b3a-0d60-46bf-bf01-83d4ba041015}</em:id>
     <em:type>2</em:type>
-    <em:version>0.9.1.b2</em:version>
+    <em:version>0.9.1.b3</em:version>
 
     <em:name>Stationery</em:name>
     <em:description>Extension to mimic Outlook Express Stationery.</em:description>

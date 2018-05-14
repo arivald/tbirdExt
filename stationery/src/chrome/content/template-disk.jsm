@@ -196,8 +196,15 @@ function readHTMLTemplateFile(template) {
         sis.close();
 
         //looking for charset definition in file, and recode file to unicode
-        //try speed up, by copying all text till </head> into variable        
-        let head = template.HTML.replace(/(.*)\/head/i);
+        //try speed up, by copying all text till </head> into a variable
+        let head;
+        let headEndIndex = template.HTML.indexOf('</head');
+        if (headEndIndex > -1) {
+          head = template.HTML.substring(0, headEndIndex);
+        } else {
+          head = template.HTML;
+        }
+
         let CSet = head.match(/<\?.*xml .*encoding *= *["'](.*)["'].*\?>/i);
         if (CSet) {
           CSet = CSet[1];
