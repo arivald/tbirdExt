@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'de.undercouch.download'
 
 group 'arivald'
-version '0.9.1.b3'
+version '1.0.0'
 
 def aceVersion = '1.2.8'
 
@@ -18,8 +18,8 @@ def aceDependencyDir = buildDir.absolutePath + '/dependency/ace/'
 def aceUrl = 'https://github.com/ajaxorg/ace-builds/archive/v' + aceVersion + '.zip'
 def aceZip = file(aceDependencyDir + 'v' + aceVersion + '.zip')
 def aceDir = file(aceDependencyDir + 'v' + aceVersion)
-def aceBuildDest = file('src/chrome/content/ace');
-def stationerySrcDir = file('src');
+def aceBuildDest = file('src/chrome/content/ace')
+def stationerySrcDir = file('src')
 def babelzillaLocalesDir = file('resources/babelzilla/Stationery_selected_locales_replaced')
 
 task downloadAce(type: Download) {
@@ -94,14 +94,14 @@ task buildAce(type: Copy) {
         filter { line ->
             line.replace(
                     'function(e,t){var n=this.$foldData,r=!1,o;e instanceof s?o=e:(o=new s(t,e),o.collapseChildren=t.collapseChildren),this.$clipRangeToDocument(o.range);',
-                    //insert "t&&t.placeholder&&(o.placeholder=t.placeholder),"
+                    //insert "t&&t.placeholder&&(o.placeholder=t.placeholder),"                                                        ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                     'function(e,t){var n=this.$foldData,r=!1,o;e instanceof s?o=e:(o=new s(t,e),o.collapseChildren=t.collapseChildren),t&&t.placeholder&&(o.placeholder=t.placeholder),this.$clipRangeToDocument(o.range);'
             )
         }
         filter { line ->
             line.replace(
                     'return t.walk(function(e,t,o,u,a){e!=null?r.push({type:"fold",value:e}):(a&&(s=n.getTokens(t)),s.length&&i(s,u,o))},t.end.row,this.session.getLine(t.end.row).length),r},',
-                    //insert "e.length>3?"ex_fold ace_string":"
+                    //insert "e.length>3?"ex_fold ace_string":"             ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
                     'return t.walk(function(e,t,o,u,a){e!=null?r.push({type:e.length>3?"ex_fold ace_string":"fold",value:e}):(a&&(s=n.getTokens(t)),s.length&&i(s,u,o))},t.end.row,this.session.getLine(t.end.row).length),r},'
             )
         }

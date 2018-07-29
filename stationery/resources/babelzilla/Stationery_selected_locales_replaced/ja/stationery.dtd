@@ -94,6 +94,6 @@
 <!ENTITY stationery.Options.tabSource.UseSourceEdit.desc "メッセージソースを HTML で編集できるようにします">
 <!ENTITY stationery.Options.tabSource.Preview "プレビュー:">
 <!ENTITY stationery.Options.tabSource.Preview.Hint "ヒント: エディタ画面をサイズ変更すると、行の折り返しの動作が分かります。">
-<!ENTITY stationery.Options.tabSource.SourceEdit.Font "font">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Font "フォント">
 <!ENTITY stationery.Options.tabSource.SourceEdit.WrapLines "行を折り返す">
 <!ENTITY stationery.Options.tabSource.SourceEdit.Theme "テーマ">

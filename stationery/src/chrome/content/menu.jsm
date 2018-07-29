@@ -188,19 +188,25 @@ Stationery.makeElement = function(doc, elementName, v) {
 
 Stationery.setupElement = function(element, v) {
   v = v || {};
-  if ('id' in v) element.setAttribute('id', v['id']);
-  if ('label' in v) element.setAttribute('label', v['label']);
+  if ('id' in v) element.setAttribute('id', v.id);
+  if ('label' in v) element.setAttribute('label', v.label);
 
-  if ('tooltip' in v) element.tooltipText = v['tooltip'];
+  if ('tooltip' in v) element.tooltipText = v.tooltip;
 
-  if ('class' in v) Stationery.addClass(element, v['class']);
+  if ('class' in v) Stationery.addClass(element, v.class);
 
-  if ('attr' in v) for (let a of fixIterator(v['attr'])) {
+  if ('attr' in v) for (let a of fixIterator(v.attr)) {
     if ('remove' in a) element.removeAttribute(a.name);
-    if ('value' in a) element.setAttribute(a.name, a.value);
+    if ('value' in a) {
+      if (('checkbox' in a && a.checkbox && !a.value) || (a.value === null)) {
+        Stationery.setCheckboxLikeAttributeToElement(element, a.name, a.value);
+      } else {
+        element.setAttribute(a.name, a.value);
+      }
+    }
   }
   if ('events' in v) {
-    for (let e of fixIterator(v['events'])) {
+    for (let e of fixIterator(v.events)) {
       element.addEventListener(e.name, e.value, 'useCapture' in e ? e.useCapture : false );
     }
   }
@@ -211,6 +217,11 @@ Stationery.setupElement = function(element, v) {
 Stationery.enableOrDisableElement = function(element, state /*bool, true = enabled*/) {
   if (state) element.removeAttribute('disabled');
   else       element.setAttribute('disabled', 'true');
+}
+
+Stationery.setCheckboxLikeAttributeToElement = function(element, attribute, state /*bool, true = checked*/) {
+  if (!state) element.removeAttribute(attribute);
+  else       element.setAttribute(attribute, state);
 }
 
 Stationery.installToolbarButton = function(doc, toolbarId, id, before) {

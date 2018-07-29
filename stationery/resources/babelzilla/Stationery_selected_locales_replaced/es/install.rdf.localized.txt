@@ -1,0 +1,3 @@
+    <em:name>Stationery</em:name>
+    <em:description>Extensión para imitar Stationery (papel membretado) de Outlook Express.</em:description>
+    <em:translator>strel</em:translator>

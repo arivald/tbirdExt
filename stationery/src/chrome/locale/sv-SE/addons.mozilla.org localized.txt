@@ -6,13 +6,13 @@
 Stationery
 
 #Summary
-Extension to mimic Outlook Express Stationery. Allow you to use HTML files as templates for mail. Also allow custom template in replies or forwarded mail!
+Tillägg som imiterar mallar i Outlook Express. Gör det möjligt att använda HTML-filer som mallar för e-post och även anpassa mallar i svar eller vidarebefordringar!
 
 #Description
-Simply use drop-down menu from buttons Write, Reply and Forward, and select "Other Stationery...".
+Använd rullgardinslisten i knapparna Skriv, Svara och Vidarebefordra, välj sedan "Annan mall...".
 
-As template you may use template files from MS Outlook Express. Or you may write one.
+Du kan använda mallfiler från MS Outlook Express som mallar, eller skapa egna mallar.
 
-By default, last used template become default one. It incorporates idea: Last time used template is probably most liked one. It make all templates sorted, most recently used going on top.
+Som standard blir den senaste mallen standard. Den senast använda mallen är förmodligen den mest omtyckta. Alla mallar sorteras så att den senast använda mallen placeras längst upp.
 
-But You can change default behavior: simply go to Tools / Stationery options, tab Options, and un-check "Manage templates automatically" setting. From now, Stationery will not update your list of templates, so default one will stay default until you change it manually in Stationery options.
+Men du kan ändra standardbeteendet: Gå till Verktyg / Stationery-alternativ, fliken Alternativ och avmarkera inställningen "Hantera mallar automatiskt". Från och med nu kommer Stationery inte att uppdatera din lista över mallar, så den som är standard kommer att förbli standard tills du ändrar den manuellt i Stationery-alternativ.

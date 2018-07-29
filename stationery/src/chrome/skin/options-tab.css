@@ -147,7 +147,7 @@ richlistitem:not([selected]) * {
 
 .stationery-template-item { 
   -moz-binding: url("chrome://stationery/content/bindings/options-tab.xml#template-item");
-  padding: 2px 2px 2px 16px;
+  padding: 2px 2px 2px 2px;
 }
 
 .stationery-template-item[drop-feedback="top"] {
@@ -159,6 +159,11 @@ richlistitem:not([selected]) * {
   box-shadow: 0 2px 2px silver, 0 -3px 3px gray inset;
   border-bottom-color: black;
 }
+
+.stationery-template-item-for-row {
+  height: 40px;
+}
+
 
 .type-icon-container {
   width: 32px;
@@ -213,12 +218,12 @@ richlistitem:not([selected]) * {
   -moz-image-region: rect(0px 21px 23px 0px);
 }
 
-.stationery-template-for-new-mail-img[stationery-for-new-mail="false"] { 
+.stationery-template-for-new-mail-img:not([stationery-for-new-mail]) {
   -moz-image-region: rect(23px 21px 46px 0px);
   visibility: collapse;
 }
 
-.stationery-template-for-new-mail-img[stationery-for-new-mail="false"][stationery-editmode="true"] { 
+.stationery-template-for-new-mail-img:not([stationery-for-new-mail])[stationery-editmode="true"] {
   visibility: visible;
 }
 
@@ -227,12 +232,12 @@ richlistitem:not([selected]) * {
   -moz-image-region: rect(0px 42px 23px 21px);
 }
 
-.stationery-template-for-reply-img[stationery-for-reply="false"]  { 
+.stationery-template-for-reply-img:not([stationery-for-reply])  {
   -moz-image-region: rect(23px 42px 46px 21px);
   visibility: collapse;
 }
 
-.stationery-template-for-reply-img[stationery-for-reply="false"][stationery-editmode="true"]  { 
+.stationery-template-for-reply-img:not([stationery-for-reply])[stationery-editmode="true"]  {
   visibility: visible;
 }
 
@@ -241,12 +246,12 @@ richlistitem:not([selected]) * {
   -moz-image-region: rect(0px 62px 23px 42px);
 }
 
-.stationery-template-for-forward-img[stationery-for-forward="false"]  { 
+.stationery-template-for-forward-img:not([stationery-for-forward])  {
   -moz-image-region: rect(23px 62px 46px 42px);
   visibility: collapse;
 }
 
-.stationery-template-for-forward-img[stationery-for-forward="false"][stationery-editmode="true"]  { 
+.stationery-template-for-forward-img:not([stationery-for-forward])[stationery-editmode="true"]  {
   visibility: visible;
 }
 

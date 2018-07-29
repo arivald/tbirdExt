@@ -1,0 +1,20 @@
+﻿#Strings to localize addons.mozilla.org page of Stationery extension for Your language.
+#Leave English or empty if You do not care.
+
+
+#Name
+Stationery
+
+#Summary
+Extensión para imitar Stationery (papel membretado) de Outlook Express. Le permite usar ficheros HTML como plantillas para correo. ¡También permite plantillas personalizadas en las respuestas o el correo reenviado!
+
+#Description
+Simplemente use el menú desplegable de los botones <strong>Redactar</strong>, <strong>Responder[*]</strong> y <strong>Reenviar</strong>, y seleccione la opción <strong>Otro membretado...</strong>.
+
+Como plantilla puede usar ficheros de plantilla de MS Outlook Express. O puede escribir uno.
+
+Por defecto, la última plantilla usada se convierte en la predeterminada. Incorpora la idea de que la plantilla que se usó la última vez es probablemente la predilecta. Ordena todas las plantillas, con las usadas más recientemente arriba.
+
+Pero puede cambiar el comportamiento predeterminado: Sencillamente vaya a <strong>Herramientas</strong> / <strong>Opciones de membretado (Stationery)</strong>, la pestaña <strong>Opciones</strong>, y desmarque la casilla <strong>Habilitar administración automática de plantillas</strong>. Desde ahora, <strong>Stationery</strong> no actualizará su lista de plantillas, así que la plantilla por defecto seguirá siendo la predeterminada hasta que la cambie manualmente en <strong>Opciones de membretado (Stationery)</strong>.
+
+Stationery ahora también funciona en cooperación con el complemento <a href="https://addons.mozilla.org/thunderbird/addon/324497/">SmartTemplate4</a>, para proporcionar una experiencia aún más rica y mejor. SmartTemplate4 le permite personalizar sus plantillas más allá de sólo el diseño, insertando información de la cabecera. Lea los detalles en la página del complemento SmartTemplate4 o en su <a href="http://smarttemplate4.mozdev.org/stationery.html">Página de soporte para integración de Stationery</a>.

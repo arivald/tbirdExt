@@ -46,26 +46,18 @@ description: binding file for options in tab page.
 
         <xul:label xbl:inherits="value=stationery-template-url, tooltiptext=stationery-template-url" flex="1" crop="center" class="stationery-template-url" />
 
-        <xul:box flex="1" align="start" style="display:block">
-          <xul:vbox>
-            <xul:image anonid="new-mail-img" xbl:inherits="stationery-editmode,stationery-for-new-mail" tooltiptext="&stationery.Options.tabTemplates.Template.For.New;" class="stationery-template-for-new-mail-img"/>
-          </xul:vbox>
+        <xul:hbox align="center" class="stationery-template-item-for-row">
+          <xul:image anonid="new-mail-img" xbl:inherits="stationery-editmode,stationery-for-new-mail" tooltiptext="&stationery.Options.tabTemplates.Template.For.New;" class="stationery-template-for-new-mail-img"/>
           <xul:checkbox anonid="new-mail-cb" xbl:inherits="stationery-editmode,checked=stationery-for-new-mail" tooltiptext="&stationery.Options.tabTemplates.Template.For.New;" class="stationery-template-for-cb" oncommand="forNewMailChanged();"/>
 
-          <xul:vbox>
-            <xul:image anonid="reply-img" xbl:inherits="stationery-editmode,stationery-for-reply" tooltiptext="&stationery.Options.tabTemplates.Template.For.Reply;" class="stationery-template-for-reply-img"/>
-          </xul:vbox>
+          <xul:image anonid="reply-img" xbl:inherits="stationery-editmode,stationery-for-reply" tooltiptext="&stationery.Options.tabTemplates.Template.For.Reply;" class="stationery-template-for-reply-img"/>
           <xul:checkbox anonid="reply-cb" xbl:inherits="stationery-editmode,checked=stationery-for-reply" tooltiptext="#&stationery.Options.tabTemplates.Template.For.Reply;" class="stationery-template-for-cb" oncommand="forReplyChanged();"/>
 
-          <xul:vbox>
-            <xul:image anonid="forward-img" xbl:inherits="stationery-editmode,stationery-for-forward" tooltiptext="&stationery.Options.tabTemplates.Template.For.Forward;" class="stationery-template-for-forward-img"/>
-          </xul:vbox>
+          <xul:image anonid="forward-img" xbl:inherits="stationery-editmode,stationery-for-forward" tooltiptext="&stationery.Options.tabTemplates.Template.For.Forward;" class="stationery-template-for-forward-img"/>
           <xul:checkbox anonid="forward-cb" xbl:inherits="stationery-editmode,checked=stationery-for-forward" tooltiptext="&stationery.Options.tabTemplates.Template.For.Forward;" class="stationery-template-for-cb" oncommand="forForwardChanged();"/>
           
-         </xul:box>
-<!-- todo
-         <xul:checkbox label="Remove quote header" xbl:inherits="stationery-editmode" class="stationery-template-for-cb"/>
--->
+         </xul:hbox>
+
       </xul:vbox>
     </content>
     
@@ -103,8 +95,9 @@ description: binding file for options in tab page.
         <![CDATA[
           let uid = this.getAttribute('stationery-template');
           let newValue = Stationery.templates.onTemplatePropertyEdited(uid, 'flags.notForNewMail', !this._for_new_mail_cb.checked);
-          this._for_new_mail_cb.checked = !newValue;
-          this.setAttribute('stationery-for-new-mail', this._for_new_mail_cb.checked);
+          //this._for_new_mail_cb.checked = !newValue;
+          Stationery.setCheckboxLikeAttributeToElement(this, 'stationery-for-new-mail', !newValue);
+          //this.setAttribute('stationery-for-new-mail', this._for_new_mail_cb.checked);
         ]]>
         </body>
       </method>
@@ -114,8 +107,8 @@ description: binding file for options in tab page.
         <![CDATA[
           let uid = this.getAttribute('stationery-template');
           let newValue = Stationery.templates.onTemplatePropertyEdited(uid, 'flags.notForReply', !this._for_reply_cb.checked);
-          this._for_reply_cb.checked = !newValue;
-          this.setAttribute('stationery-for-reply', this._for_reply_cb.checked);
+          //this._for_reply_cb.checked = !newValue;
+          Stationery.setCheckboxLikeAttributeToElement(this, 'stationery-for-reply', !newValue);
         ]]>
         </body>
       </method>
@@ -125,8 +118,8 @@ description: binding file for options in tab page.
         <![CDATA[
           let uid = this.getAttribute('stationery-template');
           let newValue = Stationery.templates.onTemplatePropertyEdited(uid, 'flags.notForForward', !this._for_forward_cb.checked);
-          this._for_forward_cb.checked = !newValue;
-          this.setAttribute('stationery-for-forward', this._for_forward_cb.checked);
+          //this._for_forward_cb.checked = !newValue;
+          Stationery.setCheckboxLikeAttributeToElement(this, 'stationery-for-forward', !newValue);
         ]]>
         </body>
       </method>

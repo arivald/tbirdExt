@@ -21,7 +21,14 @@
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveUp.Hint "選択したテンプレートを上へ移動します">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown "下へ移動">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown.Hint "選択したテンプレートを下へ移動します">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit "編集">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Hint "クリックして現在選択中のテンプレートのプロパティを編集します">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish "完了">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish.Hint "クリックしてテンプレートの編集を完了します">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.DragnDrop.Hint "ヒント: テンプレートをドラッグ＆ドロップして順番を並べ替えることができます。">
+<!ENTITY stationery.Options.tabTemplates.Template.For.New "このテンプレートは新しいメールで使用できます">
+<!ENTITY stationery.Options.tabTemplates.Template.For.Reply "このテンプレートは返信メールで使用できます">
+<!ENTITY stationery.Options.tabTemplates.Template.For.Forward "このテンプレートは転送メールで使用できます">
 <!ENTITY stationery.Options.tabOptions "オプション">
 <!ENTITY stationery.Options.tabOptions.MaxTemplatesCount "メニュー内のテンプレートの最大数">
 <!ENTITY stationery.Options.tabOptions.AutoManage "テンプレートを自動的に管理">
@@ -81,11 +88,12 @@
 <!ENTITY stationery.Options.tabOptions.Apply.ReplySenderGroupCheckBox "ニュースグループと送信者へ返信">
 <!ENTITY stationery.Options.tabOptions.Gui.Composer "コンポーザのカスタマイズ">
 <!ENTITY stationery.Options.tabOptions.Gui.AddresingWidgetLines "Addresing Widget の行数">
+<!ENTITY stationery.Options.tabOptions.Gui.AddresingWidgetLines.default "既定">
 <!ENTITY stationery.Options.tabSourceEditor "ソースエディタ">
 <!ENTITY stationery.Options.tabSource.UseSourceEdit "HTML ソースエディタを使用">
 <!ENTITY stationery.Options.tabSource.UseSourceEdit.desc "メッセージソースを HTML で編集できるようにします">
 <!ENTITY stationery.Options.tabSource.Preview "プレビュー:">
 <!ENTITY stationery.Options.tabSource.Preview.Hint "ヒント: エディタ画面をサイズ変更すると、行の折り返しの動作が分かります。">
-<!ENTITY stationery.Options.tabSource.SourceEdit.FontAndBaseColors "フォント">
+<!ENTITY stationery.Options.tabSource.SourceEdit.Font "フォント">
 <!ENTITY stationery.Options.tabSource.SourceEdit.WrapLines "行を折り返す">
 <!ENTITY stationery.Options.tabSource.SourceEdit.Theme "テーマ">

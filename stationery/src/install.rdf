@@ -3,7 +3,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>{d0e38b3a-0d60-46bf-bf01-83d4ba041015}</em:id>
     <em:type>2</em:type>
-    <em:version>0.9.1.b3</em:version>
+    <em:version>1.0.0</em:version>
 
     <em:name>Stationery</em:name>
     <em:description>Extension to mimic Outlook Express Stationery.</em:description>
@@ -19,7 +19,8 @@
     <em:translator>Carlos Simão (pt-PT)</em:translator>
     <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
     <em:translator>HeartBlade (zh-CN)</em:translator>
-        
+    <em:translator>strel Babelzilla community member (es)</em:translator>
+
     <em:targetApplication> <!-- Thunderbird -->
       <Description>
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>

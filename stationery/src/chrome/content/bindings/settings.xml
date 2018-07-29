@@ -374,8 +374,6 @@ description: binding for obsoleted <setting> elements.
         <xul:menulist anonid="f" oncommand="inputChanged();" flex="1" sizetopopup="pref" xbl:inherits="disabled" maxwidth="200">
           <xul:menupopup anonid="f_mp">
             <xul:menuitem label="monospace" value="monospace" style="font-family: monospace !important;"/>
-            <xul:menuitem label="serif" value="serif" style="font-family: serif !important;"/>
-            <xul:menuitem label="sans-serif" value="sans-serif" style="font-family: sans-serif !important;"/>
             <xul:menuseparator anonid="f_mp_s"/>
           </xul:menupopup>
         </xul:menulist>
@@ -402,10 +400,14 @@ description: binding for obsoleted <setting> elements.
         this._timer = Stationery.makeTimer();
         let _this = this; //NOTE: 'this' in timer function is something different
         this._timer.startTimeout(function () { 
-          let allFonts = Stationery.fontEnumerator.EnumerateAllFonts({ value: 0 });
+          let allFonts = Stationery.fontEnumerator.EnumerateFonts("", "monospace", { value: 0 });
           let itemNode = null;
-          for (let i = 0; i < allFonts.length; ++i)
-            _this.f_mp.appendChild(Stationery.makeElement(_this.f_mp, 'menuitem', { label: allFonts[i], attr: [ {name: 'value', value: allFonts[i]} ] }));
+          for (let i = 0; i < allFonts.length; ++i) {
+            let font = allFonts[i];
+            let fontLc = font.toLowerCase();
+            if (fontLc.includes("courier") || fontLc.includes("mono") || fontLc.includes("consolas") || fontLc.includes("typewriter") || fontLc.includes("ocr-") || fontLc.includes("terminal") || fontLc.includes("console"))
+              _this.f_mp.appendChild(Stationery.makeElement(_this.f_mp, 'menuitem', { label: font, attr: [ {name: 'value', value: font}, {name: 'style', value: 'font-family: "' + font + '" !important;'} ] }));
+          }
 
           if (_this.f._value) _this.setMulticontrolValue(_this.f, _this.f._value);          
         }, 100); 

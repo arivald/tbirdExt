@@ -165,7 +165,6 @@ function onIdSelectorSelect() {
     removeButton.removeAttribute('disabled');
 }
 
-
 let reFillTemplatesListTimer = Stationery.makeTimer();
 function reFillTemplatesList() {
   reFillTemplatesListTimer.startTimeout(function () { 
@@ -188,9 +187,9 @@ function reFillTemplatesList() {
             {name: 'stationery-template-type', value: template.type},
             {name: 'stationery-template-url', value: Stationery.templates.getDisplayUrl(template)},
             {name: 'stationery-template', value: template.uid },
-            {name: 'stationery-for-new-mail', value: !Stationery.templates.haveFlag(template, 'notForNewMail') },
-            {name: 'stationery-for-reply', value: !Stationery.templates.haveFlag(template, 'notForReply') },
-            {name: 'stationery-for-forward', value: !Stationery.templates.haveFlag(template, 'notForForward') },
+            {name: 'stationery-for-new-mail', value: !Stationery.templates.haveFlag(template, 'notForNewMail'), checkbox: true },
+            {name: 'stationery-for-reply', value: !Stationery.templates.haveFlag(template, 'notForReply'), checkbox: true },
+            {name: 'stationery-for-forward', value: !Stationery.templates.haveFlag(template, 'notForForward'), checkbox: true },
             
           ],
           events: [

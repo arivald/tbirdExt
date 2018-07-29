@@ -21,7 +21,14 @@
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveUp.Hint "Ausgewählte Vorlage nach oben verschieben">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown "Abwärts">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.MoveDown.Hint "Ausgewählte Vorlage nach unten verschieben">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit "Editieren">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Hint "Die Eigenschaften der ausgewählten Vorlage editieren">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish "Fertig">
+<!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish.Hint "Editieren beenden">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.DragnDrop.Hint "Hinweis: Sie können auch Drag'n'Drop benutzen, um die Reihenfolge zu ändern.">
+<!ENTITY stationery.Options.tabTemplates.Template.For.New "Vorlage kann bei Verfassen neuer Emails benutzt werden">
+<!ENTITY stationery.Options.tabTemplates.Template.For.Reply "Vorlage kann beim Beantworten von Emails benutzt werden">
+<!ENTITY stationery.Options.tabTemplates.Template.For.Forward "Vorlage kann beim Weiterleiten von Emails benutzt werden">
 <!ENTITY stationery.Options.tabOptions "Optionen">
 <!ENTITY stationery.Options.tabOptions.MaxTemplatesCount "Maximale Anzahl von Vorlagen im Menü">
 <!ENTITY stationery.Options.tabOptions.AutoManage "Vorlagen automatisch verwalten">
@@ -70,7 +77,7 @@
 <!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryCheckBox "'Vorlage wechseln...' im Kontextmenü beim Verfassen anzeigen">
 <!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryToolbutton "Button zur Symbolleiste im Verfassen-Dialog hinzufügen">
 <!ENTITY stationery.Options.tabOptions.Apply.label1 "Vorlage verwenden bei:">
-<!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Neuer Nachricht">
+<!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Neue Nachricht">
 <!ENTITY stationery.Options.tabOptions.Apply.MailtoCheckBox "'mailto:' Verknüpfungen">
 <!ENTITY stationery.Options.tabOptions.Apply.ReplySenderCheckBox "Antworten">
 <!ENTITY stationery.Options.tabOptions.Apply.ReplyAllCheckBox "Antworten an alle">

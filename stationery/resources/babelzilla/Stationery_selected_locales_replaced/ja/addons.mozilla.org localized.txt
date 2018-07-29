@@ -6,13 +6,13 @@
 Stationery
 
 #Summary
-Extension to mimic Outlook Express Stationery. Allow you to use HTML files as templates for mail. Also allow custom template in replies or forwarded mail!
+Outlook Express のひな形機能を模倣する拡張機能です。HTML ファイルをメールのテンプレートとして使用できます。また、返信メールや転送メールでも独自のテンプレートを使用できます。
 
 #Description
-Simply use drop-down menu from buttons Write, Reply and Forward, and select "Other Stationery...".
+作成、返信、転送ボタンのドロップダウンメニューから "他のひな形..." を選ぶだけで使えます。
 
-As template you may use template files from MS Outlook Express. Or you may write one.
+MS Outlook Express からのテンプレートファイルもテンプレートとして使用できます。または新しく作成してください。
 
-By default, last used template become default one. It incorporates idea: Last time used template is probably most liked one. It make all templates sorted, most recently used going on top.
+最後に使用してテンプレートが既定のテンプレートになります。これは、最後に使用したテンプレートが最も多く使われるだろうという考えに基づいています。すべてのテンプレートが並べ替えられ、最近使用したものが上位に来るようになっています。
 
-But You can change default behavior: simply go to Tools / Stationery options, tab Options, and un-check "Manage templates automatically" setting. From now, Stationery will not update your list of templates, so default one will stay defaut until you change it manually in Stationery options.
+しかし、この既定の動作を変更することもできます。[ツール] > [Stationery オプション] のタブオプションから "テンプレートの自動管理を有効にする" 設定のチェックを外してください。これ以後、テンプレートのリストが更新されなくなり、既定のテンプレートは Stationery オプションから変更するまでそのままになります。

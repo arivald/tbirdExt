@@ -1,6 +1,6 @@
 <!ENTITY stationery.Composer.Tab.Edit "Uredi">
 <!ENTITY stationery.Composer.Tab.Source "Vir (HTML)">
-<!ENTITY stationery.Composer.Toolbutton.Change "Predloga">
+<!ENTITY stationery.Composer.Toolbutton.Change "Stationery">
 <!ENTITY stationery.Composer.Toolbutton.Change.Tip "Spremeni predlogo Stationary">
 <!ENTITY stationery.Composer.findCmd.label "Najdi ...">
 <!ENTITY stationery.Composer.findCmd.accesskey "N">
@@ -10,7 +10,7 @@
 <!ENTITY stationery.Options.tabTemplates "Predloge">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Label "Identiteta">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Add "Dodaj">
-<!ENTITY stationery.Options.tabTemplates.Header.Identity.Add.Hint "Seznam za novo identiteto">
+<!ENTITY stationery.Options.tabTemplates.Header.Identity.Add.Hint "Dodaj seznam za novo identiteto">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove "Odstrani">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove.Hint "Odstrani seznam za izbrano identiteto">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Add "Dodaj">
@@ -93,7 +93,7 @@
 <!ENTITY stationery.Options.tabSource.UseSourceEdit "Uporabi urejevalnik vira HTML">
 <!ENTITY stationery.Options.tabSource.UseSourceEdit.desc "To vam omogoča urejanje vira sporočil HTML">
 <!ENTITY stationery.Options.tabSource.Preview "Predogled:">
-<!ENTITY stationery.Options.tabSource.Preview.Hint "Namig: Spremite velikost urejevalnika, da vidite kako deluje ovijanje.">
+<!ENTITY stationery.Options.tabSource.Preview.Hint "Namig: Spremite velikost urejevalnika, da vidite, kako deluje prelamljanje.">
 <!ENTITY stationery.Options.tabSource.SourceEdit.Font "Pisave">
-<!ENTITY stationery.Options.tabSource.SourceEdit.WrapLines "Ovij vrstice">
+<!ENTITY stationery.Options.tabSource.SourceEdit.WrapLines "Prelomi vrstice">
 <!ENTITY stationery.Options.tabSource.SourceEdit.Theme "Tema">

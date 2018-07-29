@@ -17,3 +17,4 @@ locale stationery pt-PT chrome/locale/pt-PT/
 locale stationery sv-SE chrome/locale/sv-SE/
 locale stationery zh-CN chrome/locale/zh-CN/
 locale stationery sl-SI chrome/locale/sl-SI/
+locale stationery es    chrome/locale/es/

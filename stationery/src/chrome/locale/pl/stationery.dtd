@@ -1,24 +1,18 @@
 <!ENTITY stationery.Composer.Tab.Edit "Edycja">
 <!ENTITY stationery.Composer.Tab.Source "Źródło (HTML)">
-
 <!ENTITY stationery.Composer.Toolbutton.Change "Papeteria">
 <!ENTITY stationery.Composer.Toolbutton.Change.Tip "Zmień papeterię">
-
 <!ENTITY stationery.Composer.findCmd.label "Szukaj...">
 <!ENTITY stationery.Composer.findCmd.accesskey "F">
-
 <!ENTITY stationery.Options "Stationery - opcje">
 <!ENTITY stationery.OptionsAKey "S">
-
 <!ENTITY stationery.Options.inline.moreOptions "Więcej opcji">
-
 <!ENTITY stationery.Options.tabTemplates "Papeterie">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Label "Tożsamość">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Add "Dodaj">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Add.Hint "Dodaje listę papeterii dla nowej tożsamości">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove "Usuń">
 <!ENTITY stationery.Options.tabTemplates.Header.Identity.Remove.Hint "Dodaje listę papeterii dla wybranej tożsamości">
-
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Add "Dodaj">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Add.Hint "Dodaje nową papeterię">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Remove "Usuń">
@@ -32,25 +26,25 @@
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish "Zakończ">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.Edit.Finish.Hint "Kliknij aby zakończyć edycję papeterii">
 <!ENTITY stationery.Options.tabTemplates.Header.Template.DragnDrop.Hint "Wskazówka: Możesz użyć techniki 'przeciągnij i upuść' aby zmienić kolejność papeterii.">
-
 <!ENTITY stationery.Options.tabTemplates.Template.For.New "Ta papeteria może być używana z nowymi wiadomościami.">
 <!ENTITY stationery.Options.tabTemplates.Template.For.Reply "Ta papeteria może być używana przy odpowiadaniu na wiadomości.">
 <!ENTITY stationery.Options.tabTemplates.Template.For.Forward "Ta papeteria może być używana przy przekazywaniu wiadomości.">
-
 <!ENTITY stationery.Options.tabOptions "Opcje">
 <!ENTITY stationery.Options.tabOptions.MaxTemplatesCount "Maksymalna liczba papeterii w menu">
 <!ENTITY stationery.Options.tabOptions.AutoManage "Zarządzaj papeteriami automatycznie">
 <!ENTITY stationery.Options.tabOptions.AutoManage.desc "Kiedy automatyczne zarządzanie papeteriami jest włączone, nowe papeterie będą automatycznie dodawane do listy. Lista będzie automatycznie sortowana, ostatnio użyta papeteria będzie papeterią domyślną.
+
+
 Bez automatycznego zarządzania będziesz musiał ręcznie dodawać i sortować papeterie w opcjach dodatku Stationery, karta Papeterie.">
 <!ENTITY stationery.Options.tabOptions.AutoManage.desc.short "Nowe papeterie będą automatycznie dodawane do listy.">
-
 <!ENTITY stationery.Options.tabOptions.DefaultSearchPath "Domyślny folder na pliki papeterii">
 <!ENTITY stationery.Options.tabOptions.DefaultSearchPath.desc "Domyślny folder gdzie dodatek Stationery będzie szukał papeterii.
+
+
 Możesz użyć folderu w swoim folderze domowym, lub folderu w swoim folderze profilu.">
 <!ENTITY stationery.Options.tabOptions.DefaultSearchPath.Profile "Folder w folderze profilu: (rekomendowane dla użytkowników wersji 'portable')">
 <!ENTITY stationery.Options.tabOptions.DefaultSearchPath.Any "Dowolny folder: (np. folder w twoim folderze domowym)">
 <!ENTITY stationery.Options.tabOptions.DefaultSearchPath.Browse "Przeglądaj...">
-
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.label "Domyślne kodowania dla pliku papeterii">
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.utf8 "Unikod - UTF-8">
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.iso1 "Łaciński 1 - ISO 8859-1">
@@ -70,16 +64,12 @@ Możesz użyć folderu w swoim folderze domowym, lub folderu w swoim folderze pr
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.win1256 "Arabskie - Windows-1256">
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.win1257 "Bałtyckie - Windows-1257">
 <!ENTITY stationery.Options.tabOptions.TemplateCharset.win1258 "Wietnamskie - Windows-1258">
-
 <!ENTITY stationery.Options.tabOptions.ConfirmTemplateChange "Pytaj o potwierdzenie zmiany papeterii">
 <!ENTITY stationery.Options.tabOptions.ConfirmTemplateChange.desc "Dodatek Stationery będzie prosił o dodatkowe potwierdzenie zmiany papeterii, kiedy użyjesz opcji 'Zmień papeterię' w trakcie edycji wiadomości.">
-
 <!ENTITY stationery.Options.tabOptions.ChangeTemplateWithIdentity "Zmień papeterię przy zmianie tożsamości">
 <!ENTITY stationery.Options.tabOptions.ChangeTemplateWithIdentity.desc "Automatycznie zmienia aktualną papeterię na domyślną papeterię nowej tożsamości.">
 <!ENTITY stationery.Options.tabOptions.ChangeTemplateWithIdentity.yes "Tak, zmień papeterię">
 <!ENTITY stationery.Options.tabOptions.ChangeTemplateWithIdentity.confirmation "Jeśli wiadomość została zmodyfikowana, pytaj o potwierdzenie zmiany papeterii">
-
-
 <!ENTITY stationery.Options.tabOptions.Gui "Dostosowywanie interfejsu użytkownika">
 <!ENTITY stationery.Options.tabOptions.Gui.label1 "W głównym oknie Thunderbirda dołącz menu do:">
 <!ENTITY stationery.Options.tabOptions.Gui.label2 "W oknie podglądu wiadomości dołącz menu do:">
@@ -92,7 +82,6 @@ Możesz użyć folderu w swoim folderze domowym, lub folderu w swoim folderze pr
 <!ENTITY stationery.Options.tabOptions.Gui.OptionsWindowCheckBox "Dodaj menu &apos;Stationery - opcje&apos; do menu &apos;Narzędzia&apos;.">
 <!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryCheckBox "Dodaj menu &apos;Zmien papeterię...&apos; do menu kontekstowego w oknie edycji wiadomości.">
 <!ENTITY stationery.Options.tabOptions.Gui.ChangeStationeryToolbutton "Dodaj przycisk do zmiany papeterii w na pasku narzędziowym w edytorze wiadomości.">
-
 <!ENTITY stationery.Options.tabOptions.Apply.label1 "Zastosuj Papeterię w:">
 <!ENTITY stationery.Options.tabOptions.Apply.NewmailCheckBox "Nowej wiadomości">
 <!ENTITY stationery.Options.tabOptions.Apply.MailtoCheckBox "Wiadomości ze łącza typu &apos;mailto:&apos;">
@@ -103,17 +92,14 @@ Możesz użyć folderu w swoim folderze domowym, lub folderu w swoim folderze pr
 <!ENTITY stationery.Options.tabOptions.Apply.NewsCheckBox "Wiadomości do grupy dyskusyjnej">
 <!ENTITY stationery.Options.tabOptions.Apply.ReplyGroupCheckBox "Odpowiedzi do grupy dyskusyjnej">
 <!ENTITY stationery.Options.tabOptions.Apply.ReplySenderGroupCheckBox "Odpowiedzi do nadawcy, w grupach dyskusyjnych">
-
 <!ENTITY stationery.Options.tabOptions.Gui.Composer "Dostosowywanie edytora wiadomości">
 <!ENTITY stationery.Options.tabOptions.Gui.AddresingWidgetLines "Liczba linii z adresami email">
 <!ENTITY stationery.Options.tabOptions.Gui.AddresingWidgetLines.default "domyślnie">
-
 <!ENTITY stationery.Options.tabSourceEditor "Edytor źródła HTML">
 <!ENTITY stationery.Options.tabSource.UseSourceEdit "Użyj edytora źródła HTML">
 <!ENTITY stationery.Options.tabSource.UseSourceEdit.desc "Ta opcja pozwoli Ci na edytowanie źródeł HTML wiadomości.">
 <!ENTITY stationery.Options.tabSource.Preview "Podgląd:">
 <!ENTITY stationery.Options.tabSource.Preview.Hint "Wskazówka: Zmień rozmiar edytora aby zobaczyć jak działa łamanie linii.">
-
 <!ENTITY stationery.Options.tabSource.SourceEdit.Font "czcionka">
 <!ENTITY stationery.Options.tabSource.SourceEdit.WrapLines "złam linie">
 <!ENTITY stationery.Options.tabSource.SourceEdit.Theme "styl">
